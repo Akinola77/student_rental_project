@@ -179,6 +179,19 @@ const outcomes: { title: string; body: string; Icon: LucideIcon }[] = [
   },
 ];
 
+const relatedServices = [
+  {
+    title: "DevOps & Platform Engineering",
+    body: "Build CI/CD, Infrastructure as Code, DevSecOps and developer platforms on top of your cloud foundation.",
+    href: "/services/devops-platform-engineering",
+  },
+  {
+    title: "Managed Cloud Services",
+    body: "Operate, monitor, secure and continuously optimise your cloud environment after go-live.",
+    href: "/services/managed-cloud-services",
+  },
+];
+
 function SectionTitle({
   title,
   subtitle,
@@ -451,6 +464,34 @@ export default function CloudImplementationPage() {
                 <Icon className="w-7 h-7 text-cyan-200 mb-4" aria-hidden />
                 <h3 className="text-lg font-bold mb-2">{title}</h3>
                 <p className="text-sm text-white/80 leading-relaxed">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <SectionTitle title="Related Services" />
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {relatedServices.map((item) => (
+              <article
+                key={item.title}
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col"
+              >
+                <h3 className="text-lg font-bold text-ocu-blue mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
+                  {item.body}
+                </p>
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center gap-2 text-ocu-blue font-semibold hover:text-ocu-cyan transition-colors underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40 rounded-sm"
+                >
+                  Learn more
+                  <ArrowRight className="w-4 h-4" aria-hidden />
+                </Link>
               </article>
             ))}
           </div>

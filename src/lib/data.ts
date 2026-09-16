@@ -95,12 +95,12 @@ export const services = [
   },
   {
     id: 3,
-    title: "DevOps Implementation & Outsourcing",
+    title: "DevOps & Platform Engineering",
     description:
-      "Stand up CI/CD pipelines and infrastructure automation, or outsource the ongoing DevOps function entirely to a multi-skilled AWS, Azure and GCP team.",
+      "Accelerate software delivery with CI/CD, Infrastructure as Code, DevSecOps, platform engineering and specialist DevOps engineering expertise.",
     image: "/photos/devopsandautomation.png",
     icon: "shield",
-    href: "/contact",
+    href: "/services/devops-platform-engineering",
   },
   {
     id: 4,
@@ -272,7 +272,7 @@ export const overview = {
     {
       title: "DevOps Institute Member",
       description:
-        "Aligned with DevOps Institute practices for our DevOps implementation and outsourcing services.",
+        "Aligned with DevOps Institute practices for our DevOps and Platform Engineering services.",
     },
     {
       title: "Business All-Star 2026 Accredited",
@@ -349,7 +349,7 @@ export const caseStudies = [
   },
   {
     slug: "devops-outsourcing-saas-startup",
-    category: "DevOps Implementation",
+    category: "DevOps & Platform Engineering",
     title: "DevOps Outsourcing for a SaaS Startup",
     client: "Illustrative Client — SaaS",
     summary:

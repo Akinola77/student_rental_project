@@ -275,8 +275,9 @@ const relatedServices: {
     href: "/services/cloud-implementation",
   },
   {
-    title: "DevOps / Platform Engineering",
-    body: "CI/CD, Infrastructure as Code and platform engineering to make cloud operations repeatable.",
+    title: "DevOps & Platform Engineering",
+    body: "CI/CD, Infrastructure as Code, DevSecOps and platform engineering to make software delivery repeatable.",
+    href: "/services/devops-platform-engineering",
   },
   {
     title: "Cloud Security",
