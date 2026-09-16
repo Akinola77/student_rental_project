@@ -39,7 +39,8 @@ export default function Services() {
             return (
               <div
                 key={s.id}
-                className={`flex flex-col gap-10 md:gap-14 items-center ${
+                id={s.id === 6 ? "ai-solutions" : undefined}
+                className={`flex flex-col gap-10 md:gap-14 items-center scroll-mt-28 ${
                   reverse ? "md:flex-row-reverse" : "md:flex-row"
                 }`}
               >

@@ -64,11 +64,11 @@ export const heroSlides = [
     imageAlt: "Business All-Star 2026 Accredited",
   },
   {
-    title: "AI-Driven Operations",
+    title: "Transform Your Business with AI on AWS",
     subtitle:
-      "AIOps, FinOps Intelligence, Predictive Analytics and AI-Enhanced Security for the modern cloud estate.",
-    buttonText: "See Our AI Services",
-    href: "/#services",
+      "From Generative AI and Agentic AI to AIOps, predictive analytics and intelligent automation, we turn AI opportunities into secure, production-ready solutions.",
+    buttonText: "Explore AI Solutions",
+    href: "/#ai-solutions",
     image: "/photos/aiintegration.png",
     imageAlt: "AI-Driven Operations",
   },
