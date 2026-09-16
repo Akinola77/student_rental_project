@@ -69,8 +69,8 @@ export default function Services() {
                     {s.description}
                   </p>
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center space-x-2 text-ocu-blue font-semibold hover:text-ocu-cyan transition-colors underline decoration-2 underline-offset-4"
+                    href={s.href}
+                    className="inline-flex items-center space-x-2 text-ocu-blue font-semibold hover:text-ocu-cyan transition-colors underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40 rounded-sm"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-5 h-5" />

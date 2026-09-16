@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -79,17 +80,26 @@ export function PageHero({
   title,
   subtitle,
   image = "/photos/transformcloudjourney.jpg",
+  imageAlt = "",
+  primary,
+  secondary,
 }: {
   title: string;
   subtitle: string;
   image?: string;
+  imageAlt?: string;
+  primary?: { href: string; label: string };
+  secondary?: { href: string; label: string };
 }) {
   return (
     <section className="relative min-h-[52vh] flex items-end overflow-hidden bg-black pt-32 pb-16">
-      <img
+      <Image
         src={image}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        alt={imageAlt}
+        fill
+        priority
+        className="object-cover opacity-50"
+        sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
@@ -97,6 +107,27 @@ export function PageHero({
           {title}
         </h1>
         <p className="text-lg text-white/85 max-w-2xl font-light">{subtitle}</p>
+        {(primary || secondary) && (
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            {primary && (
+              <Link
+                href={primary.href}
+                className="inline-flex items-center justify-center gap-2 bg-ocu-cyan hover:bg-[#1D54C2] text-white px-6 py-3.5 rounded-lg text-sm font-bold transition-colors shadow-lg min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                <span>{primary.label}</span>
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+            )}
+            {secondary && (
+              <Link
+                href={secondary.href}
+                className="inline-flex items-center justify-center gap-2 bg-transparent text-white border border-white/30 hover:bg-white/10 px-6 py-3.5 rounded-lg text-sm font-bold transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                <span>{secondary.label}</span>
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
