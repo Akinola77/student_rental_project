@@ -73,7 +73,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
   const isHome = pathname === "/";
-  const inverted = isHome && !scrolled && !mobile;
+  const isServicePage = pathname.startsWith("/services/");
+  const inverted = (isHome || isServicePage) && !scrolled && !mobile;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
