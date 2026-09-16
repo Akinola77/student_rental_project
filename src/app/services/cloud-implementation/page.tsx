@@ -58,7 +58,12 @@ const challenges: { title: string; Icon: LucideIcon }[] = [
   { title: "Cloud skills and resource gaps", Icon: Users },
 ];
 
-const deliverables: { title: string; body: string; Icon: LucideIcon }[] = [
+const deliverables: {
+  title: string;
+  body: string;
+  Icon: LucideIcon;
+  href?: string;
+}[] = [
   {
     title: "Cloud Strategy & Assessment",
     body: "Assess the existing environment, business objectives, workloads and dependencies to develop a practical cloud transformation roadmap.",
@@ -83,6 +88,7 @@ const deliverables: { title: string; body: string; Icon: LucideIcon }[] = [
     title: "Application Modernisation",
     body: "Modernise legacy applications using cloud-native architectures, containers, serverless technologies and managed services where appropriate.",
     Icon: Boxes,
+    href: "/services/application-services",
   },
   {
     title: "Cloud Integration",
@@ -180,6 +186,11 @@ const outcomes: { title: string; body: string; Icon: LucideIcon }[] = [
 ];
 
 const relatedServices = [
+  {
+    title: "Application Services",
+    body: "Modernise legacy applications and build secure, scalable cloud-native solutions on your cloud foundation.",
+    href: "/services/application-services",
+  },
   {
     title: "DevOps & Platform Engineering",
     body: "Build CI/CD, Infrastructure as Code, DevSecOps and developer platforms on top of your cloud foundation.",
@@ -297,16 +308,25 @@ export default function CloudImplementationPage() {
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Our Cloud Implementation Services" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {deliverables.map(({ title, body, Icon }) => (
+            {deliverables.map(({ title, body, Icon, href }) => (
               <article
                 key={title}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full"
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full flex flex-col"
               >
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-ocu-blue to-ocu-cyan flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-white" aria-hidden />
                 </div>
                 <h3 className="text-lg font-bold text-ocu-blue mb-2">{title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{body}</p>
+                <p className="text-sm text-gray-600 leading-relaxed flex-1">{body}</p>
+                {href ? (
+                  <Link
+                    href={href}
+                    className="inline-flex items-center gap-2 mt-4 text-ocu-blue font-semibold hover:text-ocu-cyan transition-colors underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40 rounded-sm"
+                  >
+                    Learn more
+                    <ArrowRight className="w-4 h-4" aria-hidden />
+                  </Link>
+                ) : null}
               </article>
             ))}
           </div>
@@ -473,7 +493,7 @@ export default function CloudImplementationPage() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Related Services" />
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {relatedServices.map((item) => (
               <article
                 key={item.title}

@@ -367,6 +367,11 @@ const relatedServices = [
     href: "/services/cloud-implementation",
   },
   {
+    title: "Application Services",
+    body: "Modernise applications and engineer cloud-native services that DevOps platforms then deliver and operate.",
+    href: "/services/application-services",
+  },
+  {
     title: "Managed Cloud Services",
     body: "Operate, monitor, secure and continuously optimise your cloud environment.",
     href: "/services/managed-cloud-services",
@@ -959,7 +964,7 @@ export default function DevOpsPlatformEngineeringPage() {
       <section className="py-20 px-6 bg-ocu-bg">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Related Services" />
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {relatedServices.map((item) => (
               <article
                 key={item.title}

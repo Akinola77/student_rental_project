@@ -106,10 +106,10 @@ export const services = [
     id: 4,
     title: "Application Services",
     description:
-      "Modernize legacy applications into microservices architectures, improving performance, scalability and delivery velocity.",
+      "Modernise legacy applications and build secure, scalable cloud-native solutions using modern architectures, APIs, containers, serverless technologies and DevSecOps.",
     image: "/photos/architecturedesign.png",
     icon: "trending",
-    href: "/contact",
+    href: "/services/application-services",
   },
   {
     id: 5,
