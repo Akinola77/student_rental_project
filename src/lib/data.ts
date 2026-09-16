@@ -91,7 +91,7 @@ export const services = [
       "Ongoing operations, monitoring and optimization for your cloud environment, backed by a team of Site Reliability Engineers available around the clock.",
     image: "/photos/managedservices.png",
     icon: "workflow",
-    href: "/contact",
+    href: "/services/managed-cloud-services",
   },
   {
     id: 3,
