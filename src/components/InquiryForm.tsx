@@ -7,9 +7,11 @@ type Variant = "academy" | "partner" | "contact" | "event" | "job";
 export default function InquiryForm({
   variant,
   defaultProgram,
+  defaultSubject,
 }: {
   variant: Variant;
   defaultProgram?: string;
+  defaultSubject?: string;
 }) {
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -48,7 +50,7 @@ export default function InquiryForm({
           <Field label="Phone" name="phone" />
           <Field label="Company" name="company" />
         </div>
-        <Field label="Subject" name="subject" />
+        <Field label="Subject" name="subject" defaultValue={defaultSubject} />
         <Field label="Message" name="message" textarea required />
         <button
           disabled={busy}
@@ -237,12 +239,14 @@ function Field({
   type = "text",
   required,
   textarea,
+  defaultValue,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
   textarea?: boolean;
+  defaultValue?: string;
 }) {
   const cls =
     "mt-1 w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ocu-cyan/30";
@@ -251,9 +255,21 @@ function Field({
       {label}
       {required ? " *" : ""}
       {textarea ? (
-        <textarea name={name} required={required} rows={5} className={cls} />
+        <textarea
+          name={name}
+          required={required}
+          rows={5}
+          defaultValue={defaultValue}
+          className={cls}
+        />
       ) : (
-        <input type={type} name={name} required={required} className={cls} />
+        <input
+          type={type}
+          name={name}
+          required={required}
+          defaultValue={defaultValue}
+          className={cls}
+        />
       )}
     </label>
   );

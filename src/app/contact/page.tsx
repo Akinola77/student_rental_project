@@ -5,7 +5,15 @@ import InquiryForm from "@/components/InquiryForm";
 
 export const metadata: Metadata = { title: "Contact" };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ subject?: string }>;
+}) {
+  const { subject } = await searchParams;
+  const defaultSubject =
+    typeof subject === "string" && subject.trim() ? subject.trim() : undefined;
+
   return (
     <div className="bg-white min-h-screen">
       <section className="pt-32 pb-8 px-6 bg-gradient-to-b from-ocu-bg to-white">
@@ -54,7 +62,7 @@ export default function ContactPage() {
           </div>
           <div className="lg:col-span-3 bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8">
             <h2 className="text-xl font-bold text-ocu-blue mb-6">Send us a message</h2>
-            <InquiryForm variant="contact" />
+            <InquiryForm variant="contact" defaultSubject={defaultSubject} />
           </div>
         </div>
       </section>

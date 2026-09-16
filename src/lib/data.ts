@@ -82,6 +82,7 @@ export const services = [
       "Leverage the cloud to accelerate your business growth, time to market, and maximize cost savings — from architecture design through migration to a live workload.",
     image: "/photos/cloudmigration.png",
     icon: "cloud",
+    href: "/services/cloud-implementation",
   },
   {
     id: 2,
@@ -90,6 +91,7 @@ export const services = [
       "Ongoing operations, monitoring and optimization for your cloud environment, backed by a team of Site Reliability Engineers available around the clock.",
     image: "/photos/managedservices.png",
     icon: "workflow",
+    href: "/contact",
   },
   {
     id: 3,
@@ -98,6 +100,7 @@ export const services = [
       "Stand up CI/CD pipelines and infrastructure automation, or outsource the ongoing DevOps function entirely to a multi-skilled AWS, Azure and GCP team.",
     image: "/photos/devopsandautomation.png",
     icon: "shield",
+    href: "/contact",
   },
   {
     id: 4,
@@ -106,6 +109,7 @@ export const services = [
       "Modernize legacy applications into microservices architectures, improving performance, scalability and delivery velocity.",
     image: "/photos/architecturedesign.png",
     icon: "trending",
+    href: "/contact",
   },
   {
     id: 5,
@@ -114,6 +118,7 @@ export const services = [
       "Training for your in-house staff to raise cloud fluency and performance, delivered by certified practitioners across the major providers.",
     image: "/photos/certifications.png",
     icon: "settings",
+    href: "/contact",
   },
   {
     id: 6,
@@ -122,6 +127,7 @@ export const services = [
       "Automate monitoring and incident response, forecast cloud spend, and strengthen threat detection with AI-powered observability across your estate.",
     image: "/photos/aiintegration.png",
     icon: "compass",
+    href: "/contact",
   },
 ];
 
