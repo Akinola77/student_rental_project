@@ -55,11 +55,11 @@ export const heroSlides = [
     imageAlt: "AWS Partner — Advanced Tier Services",
   },
   {
-    title: "Multi Skilled Across AWS, Azure and GCP",
+    title: "Award-Winning Cloud & AI Expertise",
     subtitle:
-      "Our team delivers projects across every major cloud, supporting you from design to deployment to operations.",
-    buttonText: "Find Out More",
-    href: "/overview",
+      "Recognised as Business All-Star Global Cloud Consulting Company of the Year 2026, helping organisations transform, innovate and grow with confidence.",
+    buttonText: "Why CloudHight",
+    href: "/overview#why-cloudhight",
     image: "/photos/business-allstar-2026.png",
     imageAlt: "Business All-Star 2026 Accredited",
   },

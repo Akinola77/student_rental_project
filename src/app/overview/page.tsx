@@ -100,7 +100,7 @@ export default function OverviewPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-ocu-bg">
+      <section id="why-cloudhight" className="py-20 px-6 bg-ocu-bg scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gradient mb-4">
             Why Choose Us
