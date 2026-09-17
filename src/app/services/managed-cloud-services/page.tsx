@@ -289,9 +289,9 @@ const relatedServices: {
     body: "Security embedded into everyday cloud operations, configuration and governance.",
   },
   {
-    title: "AI & AIOps",
-    body: "Observability, intelligent alerting and AI-assisted operations across your cloud estate.",
-    href: "/#ai-solutions",
+    title: "AI & Automation",
+    body: "Design, build and operationalise enterprise AI — including AIOps, observability and AI-assisted operations across your cloud estate.",
+    href: "/services/ai-automation",
   },
   {
     title: "Cloud & AI Skills Enablement",
