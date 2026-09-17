@@ -1,5 +1,6 @@
 import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
+import AiAutomation from "@/components/AiAutomation";
 import Accreditations from "@/components/Accreditations";
 import WhatsHappening from "@/components/WhatsHappening";
 
@@ -10,6 +11,7 @@ export default function HomePage() {
       <div className="relative z-10 bg-white rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.05)] overflow-hidden">
         <Services />
       </div>
+      <AiAutomation />
       <div className="relative z-10 bg-white">
         <Accreditations />
       </div>

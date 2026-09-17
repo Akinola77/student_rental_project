@@ -11,10 +11,101 @@ export const site = {
 };
 
 export const nav = {
+  services: [
+    {
+      label: "Cloud Implementation & Migration",
+      path: "/services/cloud-implementation",
+    },
+    {
+      label: "Managed Cloud Services",
+      path: "/services/managed-cloud-services",
+    },
+    {
+      label: "DevOps & Platform Engineering",
+      path: "/services/devops-platform-engineering",
+    },
+    {
+      label: "Application Modernisation & Engineering",
+      path: "/services/application-services",
+    },
+    {
+      label: "Cloud & AI Skills Enablement",
+      path: "/services/cloud-ai-skills-enablement",
+    },
+  ],
+  ai: [
+    {
+      group: "Build with AI",
+      items: [
+        {
+          label: "Generative AI",
+          description:
+            "Enterprise AI applications using foundation models, RAG and Amazon Bedrock.",
+          path: "/#ai-generative",
+        },
+        {
+          label: "Agentic AI & AI Agents",
+          description:
+            "Agents that can reason, use tools and automate workflows.",
+          path: "/#ai-agentic",
+        },
+      ],
+    },
+    {
+      group: "AI applications",
+      items: [
+        {
+          label: "Amazon Bedrock",
+          description:
+            "Secure Generative AI and agents on AWS managed foundation-model services.",
+          path: "/#ai-bedrock",
+        },
+        {
+          label: "Intelligent Automation",
+          description:
+            "Apply AI to business processes, operations and engineering workflows.",
+          path: "/#ai-agentic",
+        },
+      ],
+    },
+    {
+      group: "Operate with AI",
+      items: [
+        {
+          label: "AIOps",
+          description:
+            "Observability, incident detection, remediation and cloud operations.",
+          path: "/#ai-aiops",
+        },
+        {
+          label: "Predictive Analytics",
+          description:
+            "Identify trends, risks and operational patterns with data and ML.",
+          path: "/#ai-aiops",
+        },
+      ],
+    },
+    {
+      group: "Govern AI",
+      items: [
+        {
+          label: "AI Security & Governance",
+          description:
+            "Security, controls, observability and responsible AI practices.",
+          path: "/#ai-security",
+        },
+      ],
+    },
+  ],
+  work: [
+    { label: "Case Studies", path: "/case-studies" },
+    { label: "Events", path: "/events" },
+  ],
   about: [
-    { label: "Overview", path: "/overview" },
+    { label: "About CloudHight", path: "/overview" },
     { label: "Team", path: "/team" },
-    { label: "Join Us", path: "/join-us" },
+    { label: "Careers", path: "/join-us" },
+    { label: "Partners", path: "/academic-alliance" },
   ],
   academy: [
     { label: "Overview", path: "/motivalogic-academy" },
@@ -35,11 +126,6 @@ export const nav = {
       path: "/academic-alliance/aws-mock-examination",
     },
     { label: "CloudHight Academy", path: "https://academy.cloudhight.com" },
-  ],
-  experiences: [
-    { label: "Case Studies", path: "/case-studies" },
-    { label: "Blogs", path: "/blogs" },
-    { label: "Events", path: "/events" },
   ],
 };
 
@@ -68,7 +154,7 @@ export const heroSlides = [
     subtitle:
       "From Generative AI and Agentic AI to AIOps, predictive analytics and intelligent automation, we turn AI opportunities into secure, production-ready solutions.",
     buttonText: "Explore AI Solutions",
-    href: "/#ai-solutions",
+    href: "/#ai-automation",
     image: "/photos/aiintegration.png",
     imageAlt: "AI-Driven Operations",
   },
@@ -122,12 +208,12 @@ export const services = [
   },
   {
     id: 6,
-    title: "AI-Driven Operations (AIOps, FinOps & Security)",
+    title: "AI-Driven Operations",
     description:
-      "Automate monitoring and incident response, forecast cloud spend, and strengthen threat detection with AI-powered observability across your estate.",
+      "Improve reliability, efficiency and cloud operations with AIOps, predictive analytics, intelligent automation and AI-powered operational insights.",
     image: "/photos/aiintegration.png",
     icon: "compass",
-    href: "/contact",
+    href: "/#ai-aiops",
   },
 ];
 
