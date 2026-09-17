@@ -293,6 +293,11 @@ const relatedServices: {
     body: "Observability, intelligent alerting and AI-assisted operations across your cloud estate.",
     href: "/#ai-solutions",
   },
+  {
+    title: "Cloud & AI Skills Enablement",
+    body: "Build internal capability so teams can operate, adopt and continuously improve the environment.",
+    href: "/services/cloud-ai-skills-enablement",
+  },
 ];
 
 function SectionTitle({

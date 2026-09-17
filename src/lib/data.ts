@@ -113,12 +113,12 @@ export const services = [
   },
   {
     id: 5,
-    title: "Cloud Training",
+    title: "Cloud & AI Skills Enablement",
     description:
-      "Training for your in-house staff to raise cloud fluency and performance, delivered by certified practitioners across the major providers.",
-    image: "/photos/certifications.png",
-    icon: "settings",
-    href: "/contact",
+      "Build the cloud, DevOps, security and AI capabilities your teams need through tailored enterprise training, hands-on workshops and practical technology enablement.",
+    image: "/photos/skills-enablement.png",
+    icon: "users",
+    href: "/services/cloud-ai-skills-enablement",
   },
   {
     id: 6,
@@ -394,7 +394,7 @@ export const caseStudies = [
   },
   {
     slug: "finops-cost-optimization-review",
-    category: "Cloud Training",
+    category: "Cloud & AI Skills Enablement",
     title: "FinOps Cost Optimization Review",
     client: "Illustrative Client — E-commerce",
     summary:
