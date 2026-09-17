@@ -12,9 +12,13 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/overview" },
   { label: "Services", href: "/#services" },
+  { label: "AI & Automation", href: "/#ai-automation" },
+  { label: "Our Work", href: "/case-studies" },
+  { label: "About", href: "/overview" },
+  { label: "Insights", href: "/blogs" },
   { label: "Contact Us", href: "/contact" },
+  { label: "Partners", href: "/academic-alliance" },
 ];
 
 export default function Footer() {
@@ -93,10 +97,21 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-white/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-300">
               © {new Date().getFullYear()} {site.name}. All rights reserved.
             </p>
+            <div className="text-center md:text-right">
+              <Link
+                href="/motivalogic-academy"
+                className="text-sm text-white/55 hover:text-white transition-colors"
+              >
+                MotivaLogic Academy
+              </Link>
+              <p className="text-xs text-white/35 mt-1">
+                Technology education & professional development
+              </p>
+            </div>
             <div className="flex space-x-6">
               <Link
                 href="/privacy-policy"
