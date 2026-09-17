@@ -35,6 +35,7 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
+import HashScroll from "@/components/HashScroll";
 
 const discussHref =
   "/contact?subject=" + encodeURIComponent("Discuss Your AI Initiative");
@@ -893,6 +894,7 @@ function AwsArchitecture() {
 export default function AiAutomationPage() {
   return (
     <div className="bg-white">
+      <HashScroll />
       <section className="relative overflow-hidden bg-[#070b1a] pt-32 pb-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,111,237,0.28),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(10,42,94,0.55),transparent_45%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -1028,7 +1030,7 @@ export default function AiAutomationPage() {
             light
             subtitle="CloudHight can support individual stages or provide an end-to-end AI delivery engagement."
           />
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-7 gap-4">
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
             {lifecycle.map((step, i) => (
               <li
                 key={step.title}

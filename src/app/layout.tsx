@@ -31,7 +31,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${outfit.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body className="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#fafbfc] to-[#f8f9fa]">
         <Navbar />
         <main>{children}</main>
