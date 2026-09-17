@@ -6,6 +6,7 @@ import {
   Settings,
   ShieldCheck,
   TrendingDown,
+  Users,
   Workflow,
 } from "lucide-react";
 import { services } from "@/lib/data";
@@ -17,6 +18,7 @@ const icons = {
   trending: TrendingDown,
   settings: Settings,
   compass: Compass,
+  users: Users,
 };
 
 export default function Services() {

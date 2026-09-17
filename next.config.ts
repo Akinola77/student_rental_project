@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/cloud-training",
+        destination: "/services/cloud-ai-skills-enablement",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

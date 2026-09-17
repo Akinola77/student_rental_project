@@ -376,6 +376,11 @@ const relatedServices = [
     body: "Operate, monitor, secure and continuously optimise your cloud environment.",
     href: "/services/managed-cloud-services",
   },
+  {
+    title: "Cloud & AI Skills Enablement",
+    body: "Build internal DevOps, platform, security and AI capability alongside delivery.",
+    href: "/services/cloud-ai-skills-enablement",
+  },
 ];
 
 function SectionTitle({
@@ -964,7 +969,7 @@ export default function DevOpsPlatformEngineeringPage() {
       <section className="py-20 px-6 bg-ocu-bg">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Related Services" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedServices.map((item) => (
               <article
                 key={item.title}
