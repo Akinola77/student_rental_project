@@ -377,6 +377,11 @@ const relatedServices = [
     href: "/services/managed-cloud-services",
   },
   {
+    title: "AI & Automation",
+    body: "Apply CI/CD, Infrastructure as Code and platform practices to move AI workloads reliably into production.",
+    href: "/services/ai-automation",
+  },
+  {
     title: "Cloud & AI Skills Enablement",
     body: "Build internal DevOps, platform, security and AI capability alongside delivery.",
     href: "/services/cloud-ai-skills-enablement",

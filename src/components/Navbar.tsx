@@ -137,20 +137,28 @@ function AiMegaMenu({
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button
-        type="button"
-        className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:text-ocu-cyan min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/50 focus-visible:ring-offset-2 rounded-sm ${color}`}
-        aria-expanded={open}
-        aria-haspopup="true"
-        aria-controls={menuId}
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span>AI &amp; Automation</span>
-        <ChevronDown
-          className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          aria-hidden
-        />
-      </button>
+      <div className="flex items-center gap-1">
+        <Link
+          href="/services/ai-automation"
+          className={`text-sm font-medium transition-all duration-300 hover:text-ocu-cyan min-h-[44px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/50 focus-visible:ring-offset-2 rounded-sm ${color}`}
+        >
+          AI &amp; Automation
+        </Link>
+        <button
+          type="button"
+          className={`inline-flex items-center min-h-[44px] min-w-[32px] justify-center transition-all duration-300 hover:text-ocu-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/50 focus-visible:ring-offset-2 rounded-sm ${color}`}
+          aria-expanded={open}
+          aria-haspopup="true"
+          aria-controls={menuId}
+          aria-label="Open AI and Automation menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <ChevronDown
+            className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+            aria-hidden
+          />
+        </button>
+      </div>
       <AnimatePresence>
         {open && (
           <motion.div
@@ -193,7 +201,7 @@ function AiMegaMenu({
               </div>
               <div className="mt-4 pt-4 border-t border-gray-100">
                 <Link
-                  href="/#ai-automation"
+                  href="/services/ai-automation"
                   role="menuitem"
                   onClick={() => setOpen(false)}
                   className="inline-flex items-center text-sm font-semibold text-ocu-blue hover:text-ocu-cyan underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40 rounded-sm"
@@ -332,7 +340,10 @@ export default function Navbar() {
               inverted={inverted}
               active={servicesActive}
             />
-            <AiMegaMenu inverted={inverted} active={false} />
+            <AiMegaMenu
+              inverted={inverted}
+              active={pathname.startsWith("/services/ai-automation")}
+            />
             <Link
               href="/overview#industries"
               className={`${linkBase} ${idle}`}
@@ -423,7 +434,7 @@ export default function Navbar() {
                     )),
                   )}
                   <Link
-                    href="/#ai-automation"
+                    href="/services/ai-automation"
                     onClick={closeMobile}
                     className="block py-2.5 text-sm font-semibold text-ocu-blue hover:text-ocu-cyan min-h-[44px]"
                   >

@@ -41,13 +41,13 @@ export const nav = {
           label: "Generative AI",
           description:
             "Enterprise AI applications using foundation models, RAG and Amazon Bedrock.",
-          path: "/#ai-generative",
+          path: "/services/ai-automation#generative-ai",
         },
         {
           label: "Agentic AI & AI Agents",
           description:
             "Agents that can reason, use tools and automate workflows.",
-          path: "/#ai-agentic",
+          path: "/services/ai-automation#agentic-ai",
         },
       ],
     },
@@ -58,13 +58,13 @@ export const nav = {
           label: "Amazon Bedrock",
           description:
             "Secure Generative AI and agents on AWS managed foundation-model services.",
-          path: "/#ai-bedrock",
+          path: "/services/ai-automation#ai-bedrock",
         },
         {
           label: "Intelligent Automation",
           description:
             "Apply AI to business processes, operations and engineering workflows.",
-          path: "/#ai-agentic",
+          path: "/services/ai-automation#intelligent-automation",
         },
       ],
     },
@@ -72,16 +72,16 @@ export const nav = {
       group: "Operate with AI",
       items: [
         {
-          label: "AIOps",
+          label: "AI-Driven Operations",
           description:
             "Observability, incident detection, remediation and cloud operations.",
-          path: "/#ai-aiops",
+          path: "/services/ai-automation#aiops",
         },
         {
           label: "Predictive Analytics",
           description:
             "Identify trends, risks and operational patterns with data and ML.",
-          path: "/#ai-aiops",
+          path: "/services/ai-automation#aiops",
         },
       ],
     },
@@ -92,7 +92,13 @@ export const nav = {
           label: "AI Security & Governance",
           description:
             "Security, controls, observability and responsible AI practices.",
-          path: "/#ai-security",
+          path: "/services/ai-automation#ai-security",
+        },
+        {
+          label: "AI Strategy & Advisory",
+          description:
+            "Identify priority use cases and a practical path to production.",
+          path: "/services/ai-automation#ai-strategy",
         },
       ],
     },
@@ -153,8 +159,8 @@ export const heroSlides = [
     title: "Transform Your Business with AI on AWS",
     subtitle:
       "From Generative AI and Agentic AI to AIOps, predictive analytics and intelligent automation, we turn AI opportunities into secure, production-ready solutions.",
-    buttonText: "Explore AI Solutions",
-    href: "/#ai-automation",
+    buttonText: "Explore AI & Automation",
+    href: "/services/ai-automation",
     image: "/photos/aiintegration.png",
     imageAlt: "AI-Driven Operations",
   },
@@ -213,7 +219,7 @@ export const services = [
       "Improve reliability, efficiency and cloud operations with AIOps, predictive analytics, intelligent automation and AI-powered operational insights.",
     image: "/photos/aiintegration.png",
     icon: "compass",
-    href: "/#ai-aiops",
+    href: "/services/ai-automation#aiops",
   },
 ];
 

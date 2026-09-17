@@ -387,6 +387,11 @@ const relatedServices = [
     href: "/services/managed-cloud-services",
   },
   {
+    title: "AI & Automation",
+    body: "Integrate Generative AI and intelligent capabilities into modern applications and digital products.",
+    href: "/services/ai-automation",
+  },
+  {
     title: "Cloud & AI Skills Enablement",
     body: "Enable engineering teams to adopt cloud-native development, delivery and AI practices.",
     href: "/services/cloud-ai-skills-enablement",

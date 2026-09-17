@@ -202,6 +202,11 @@ const relatedServices = [
     href: "/services/managed-cloud-services",
   },
   {
+    title: "AI & Automation",
+    body: "Design, build and operationalise secure enterprise AI solutions on the AWS foundations you implement.",
+    href: "/services/ai-automation",
+  },
+  {
     title: "Cloud & AI Skills Enablement",
     body: "Build the internal cloud, DevOps, security and AI capability your teams need to operate what you implement.",
     href: "/services/cloud-ai-skills-enablement",

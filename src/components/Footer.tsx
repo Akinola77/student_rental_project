@@ -13,7 +13,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
-  { label: "AI & Automation", href: "/#ai-automation" },
+  { label: "AI & Automation", href: "/services/ai-automation" },
   { label: "Our Work", href: "/case-studies" },
   { label: "About", href: "/overview" },
   { label: "Insights", href: "/blogs" },

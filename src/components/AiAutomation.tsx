@@ -6,6 +6,8 @@ import { ArrowRight, Bot, Brain, Eye, ShieldCheck } from "lucide-react";
 const discussHref =
   "/contact?subject=" + encodeURIComponent("Discuss Your AI Initiative");
 
+const exploreHref = "/services/ai-automation";
+
 const cards: {
   id: string;
   title: string;
@@ -23,9 +25,8 @@ const cards: {
     body: "Design and build secure enterprise AI applications using foundation models, Retrieval-Augmented Generation and Amazon Bedrock.",
     visual: ["Foundation Model", "Enterprise Data", "Generative AI Application"],
     visualJoin: "+",
-    cta: "Discuss Generative AI",
-    href:
-      "/contact?subject=" + encodeURIComponent("Discuss Generative AI"),
+    cta: "Explore Generative AI",
+    href: "/services/ai-automation#generative-ai",
     Icon: Brain,
   },
   {
@@ -34,8 +35,8 @@ const cards: {
     body: "Build intelligent agents that can reason, use tools, access enterprise systems and automate complex workflows across your organisation.",
     visual: ["AI Agent", "Reason", "Use Tools", "Take Action"],
     visualJoin: "→",
-    cta: "Discuss Agentic AI",
-    href: "/contact?subject=" + encodeURIComponent("Discuss Agentic AI"),
+    cta: "Explore Agentic AI",
+    href: "/services/ai-automation#agentic-ai",
     Icon: Bot,
   },
   {
@@ -44,8 +45,8 @@ const cards: {
     body: "Apply AIOps, predictive analytics and intelligent automation to improve observability, detect issues earlier and optimise cloud operations.",
     visual: ["Observe", "Detect", "Predict", "Automate", "Improve"],
     visualJoin: "→",
-    cta: "Discuss AIOps",
-    href: "/contact?subject=" + encodeURIComponent("Discuss AIOps"),
+    cta: "Explore AI-Driven Operations",
+    href: "/services/ai-automation#aiops",
     Icon: Eye,
   },
   {
@@ -55,22 +56,21 @@ const cards: {
     visual: ["AI", "Security", "Governance"],
     visualJoin: "+",
     result: "Trusted Enterprise AI",
-    cta: "Discuss AI Security",
-    href:
-      "/contact?subject=" + encodeURIComponent("Discuss AI Security"),
+    cta: "Explore AI Security",
+    href: "/services/ai-automation#ai-security",
     Icon: ShieldCheck,
   },
 ];
 
 const secondary = [
-  { label: "Amazon Bedrock", href: "/#ai-bedrock" },
-  { label: "Retrieval-Augmented Generation", href: "/#ai-generative" },
-  { label: "AI Agents", href: "/#ai-agentic" },
-  { label: "Predictive Analytics", href: "/#ai-aiops" },
-  { label: "AI-Powered DevOps", href: "/#ai-aiops" },
-  { label: "AI Observability", href: "/#ai-aiops" },
-  { label: "FinOps Intelligence", href: "/#ai-aiops" },
-  { label: "Responsible AI", href: "/#ai-security" },
+  { label: "Amazon Bedrock", href: "/services/ai-automation#ai-bedrock" },
+  { label: "Retrieval-Augmented Generation", href: "/services/ai-automation#generative-ai" },
+  { label: "AI Agents", href: "/services/ai-automation#agentic-ai" },
+  { label: "Predictive Analytics", href: "/services/ai-automation#aiops" },
+  { label: "AI-Powered DevOps", href: "/services/ai-automation#aiops" },
+  { label: "AI Observability", href: "/services/ai-automation#aiops" },
+  { label: "FinOps Intelligence", href: "/services/ai-automation#aiops" },
+  { label: "Responsible AI", href: "/services/ai-automation#ai-security" },
 ];
 
 const journey = [
@@ -221,6 +221,13 @@ export default function AiAutomation() {
             your AI strategy into secure, production-ready solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href={exploreHref}
+              className="inline-flex items-center justify-center gap-2 bg-white text-ocu-blue hover:bg-ocu-bg px-6 py-3.5 rounded-lg text-sm font-bold transition-colors shadow-lg min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ocu-blue"
+            >
+              Explore AI &amp; Automation
+              <ArrowRight className="w-4 h-4" aria-hidden />
+            </Link>
             <Link
               href={discussHref}
               className="inline-flex items-center justify-center gap-2 bg-ocu-cyan hover:bg-[#1D54C2] text-white px-6 py-3.5 rounded-lg text-sm font-bold transition-colors shadow-lg min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ocu-blue"

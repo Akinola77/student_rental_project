@@ -524,6 +524,11 @@ const relatedServices = [
     href: "/services/application-services",
   },
   {
+    title: "AI & Automation",
+    body: "Turn AI opportunities into production solutions while building the internal capability to adopt, govern and operate them.",
+    href: "/services/ai-automation",
+  },
+  {
     title: "Managed Cloud Services",
     body: "Combine operational support with knowledge transfer and continuous capability improvement.",
     href: "/services/managed-cloud-services",
