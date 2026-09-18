@@ -640,7 +640,7 @@ export default function AgenticAiConsultingPage() {
       />
       <JsonLd data={faqSchema} />
 
-      <section className="relative overflow-hidden bg-[#070b1a] pt-32 pb-16">
+      <section className="relative overflow-hidden bg-[#070b1a] pt-32 pb-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,111,237,0.32),transparent_52%),radial-gradient(ellipse_at_bottom_left,rgba(10,42,94,0.6),transparent_46%)]" />
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -654,12 +654,20 @@ export default function AgenticAiConsultingPage() {
               <p className="mb-4 text-lg leading-relaxed text-white/85">
                 Move beyond AI experiments.
               </p>
-              <p className="mb-8 max-w-2xl text-base leading-relaxed text-white/75">
+              <p className="mb-6 max-w-2xl text-base leading-relaxed text-white/75">
                 CloudHight helps organisations identify, design, build and operate
                 secure, production-ready Agentic AI solutions on AWS — connecting
                 intelligent agents with your data, applications, workflows and
                 people to deliver measurable business outcomes.
               </p>
+              <div className="mb-8 inline-flex max-w-full rounded-2xl bg-white p-5">
+                <div>
+                  <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-ocu-blue">
+                    Validated AWS Expertise
+                  </p>
+                  <AwsAgenticBadge size="lg" priority />
+                </div>
+              </div>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <PrimaryCta light />
                 <Link
@@ -673,14 +681,6 @@ export default function AgenticAiConsultingPage() {
                 From strategy and proof-of-concept to enterprise deployment and
                 ongoing optimisation.
               </p>
-              <div className="mt-8 inline-flex max-w-full rounded-2xl bg-white p-5">
-                <div>
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-ocu-blue">
-                    Validated AWS Expertise
-                  </p>
-                  <AwsAgenticBadge size="lg" priority />
-                </div>
-              </div>
             </div>
             <AgenticHeroVisual />
           </div>
