@@ -651,16 +651,7 @@ export default function AgenticAiConsultingPage() {
               <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
                 Build Agentic AI That Works in the Real World
               </h1>
-              <p className="mb-4 text-lg leading-relaxed text-white/85">
-                Move beyond AI experiments.
-              </p>
-              <p className="mb-6 max-w-2xl text-base leading-relaxed text-white/75">
-                CloudHight helps organisations identify, design, build and operate
-                secure, production-ready Agentic AI solutions on AWS — connecting
-                intelligent agents with your data, applications, workflows and
-                people to deliver measurable business outcomes.
-              </p>
-              <div className="mb-8 inline-flex max-w-full rounded-2xl bg-white p-5">
+              <div className="mb-6 inline-flex max-w-full rounded-2xl bg-white p-4 sm:p-5">
                 <div>
                   <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-ocu-blue">
                     Validated AWS Expertise
@@ -668,6 +659,15 @@ export default function AgenticAiConsultingPage() {
                   <AwsAgenticBadge size="lg" priority />
                 </div>
               </div>
+              <p className="mb-4 text-lg leading-relaxed text-white/85">
+                Move beyond AI experiments.
+              </p>
+              <p className="mb-8 max-w-2xl text-base leading-relaxed text-white/75">
+                CloudHight helps organisations identify, design, build and operate
+                secure, production-ready Agentic AI solutions on AWS — connecting
+                intelligent agents with your data, applications, workflows and
+                people to deliver measurable business outcomes.
+              </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <PrimaryCta light />
                 <Link
