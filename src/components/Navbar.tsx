@@ -7,8 +7,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/data";
 
-type SimpleItem = { label: string; path: string };
+type SimpleItem = { label: string; path: string; public?: boolean };
 type AiItem = { label: string; description: string; path: string };
+
+function publicNavItems<T extends { public?: boolean }>(items: T[]) {
+  return items.filter((item) => item.public !== false);
+}
 
 function isActivePath(pathname: string, path: string) {
   if (path.startsWith("/#") || path.startsWith("http")) return false;
@@ -286,7 +290,8 @@ export default function Navbar() {
   }, [mobile]);
 
   const servicesActive = nav.services.some((i) => isActivePath(pathname, i.path));
-  const workActive = nav.work.some((i) => isActivePath(pathname, i.path));
+  const workItems = publicNavItems(nav.work);
+  const workActive = workItems.some((i) => isActivePath(pathname, i.path));
   const aboutActive = nav.about.some((i) => isActivePath(pathname, i.path));
   const insightsActive = pathname.startsWith("/blogs");
   const linkBase =
@@ -350,12 +355,21 @@ export default function Navbar() {
             >
               Industries
             </Link>
-            <NavDropdown
-              label="Our Work"
-              items={nav.work}
-              inverted={inverted}
-              active={workActive}
-            />
+            {workItems.length > 1 ? (
+              <NavDropdown
+                label="Our Work"
+                items={workItems}
+                inverted={inverted}
+                active={workActive}
+              />
+            ) : workItems[0] ? (
+              <Link
+                href={workItems[0].path}
+                className={`${linkBase} ${workActive ? "text-ocu-cyan" : idle}`}
+              >
+                {workItems[0].label}
+              </Link>
+            ) : null}
             <NavDropdown
               label="About"
               items={nav.about}
@@ -448,18 +462,28 @@ export default function Navbar() {
                 >
                   Industries
                 </Link>
-                <MobileAccordion label="Our Work">
-                  {nav.work.map((i) => (
-                    <Link
-                      key={i.path}
-                      href={i.path}
-                      onClick={closeMobile}
-                      className="block py-2.5 text-sm text-ocu-light-blue hover:text-ocu-cyan min-h-[44px]"
-                    >
-                      {i.label}
-                    </Link>
-                  ))}
-                </MobileAccordion>
+                {workItems.length > 1 ? (
+                  <MobileAccordion label="Our Work">
+                    {workItems.map((i) => (
+                      <Link
+                        key={i.path}
+                        href={i.path}
+                        onClick={closeMobile}
+                        className="block py-2.5 text-sm text-ocu-light-blue hover:text-ocu-cyan min-h-[44px]"
+                      >
+                        {i.label}
+                      </Link>
+                    ))}
+                  </MobileAccordion>
+                ) : workItems[0] ? (
+                  <Link
+                    href={workItems[0].path}
+                    onClick={closeMobile}
+                    className="block py-3 text-base font-medium text-ocu-blue hover:text-ocu-cyan min-h-[44px]"
+                  >
+                    {workItems[0].label}
+                  </Link>
+                ) : null}
                 <MobileAccordion label="About">
                   {nav.about.map((i) => (
                     <Link

@@ -104,7 +104,8 @@ export const nav = {
     },
   ],
   work: [
-    { label: "Case Studies", path: "/case-studies" },
+    // Unpublished for launch: illustrative examples only. Re-enable when verified.
+    { label: "Case Studies", path: "/case-studies", public: false },
     { label: "Events", path: "/events" },
   ],
   about: [
@@ -410,6 +411,8 @@ export const team = [
   },
 ];
 
+// Illustrative drafts only. Unpublished from public navigation until verified
+// customer engagements are approved. Keep this data and /case-studies for Phase 2.
 export const caseStudies = [
   {
     slug: "enterprise-cloud-migration",

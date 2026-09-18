@@ -12,7 +12,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = caseStudies.find((c) => c.slug === slug);
-  return { title: cs?.title ?? "Case Study" };
+  return {
+    title: cs?.title ?? "Case Study",
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function CaseStudyPage({ params }: Props) {

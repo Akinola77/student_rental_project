@@ -14,7 +14,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
   { label: "AI & Automation", href: "/services/ai-automation" },
-  { label: "Our Work", href: "/case-studies" },
+  { label: "Events", href: "/events" },
   { label: "About", href: "/overview" },
   { label: "Insights", href: "/blogs" },
   { label: "Contact Us", href: "/contact" },
