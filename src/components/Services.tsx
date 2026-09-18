@@ -38,6 +38,7 @@ export default function Services() {
           {services.map((s, i) => {
             const Icon = icons[s.icon as keyof typeof icons];
             const reverse = i % 2 === 1;
+            const contain = "imageFit" in s && s.imageFit === "contain";
             return (
               <div
                 key={s.id}
@@ -48,16 +49,28 @@ export default function Services() {
               >
                 <div className="w-full md:w-1/2">
                   <div
-                    className={`group relative aspect-video rounded-2xl overflow-hidden shadow-xl ${
-                      reverse ? "rounded-tl-[3rem]" : "rounded-tr-[3rem]"
-                    }`}
+                    className={`group relative overflow-hidden rounded-2xl shadow-xl ${
+                      contain
+                        ? "aspect-square bg-white sm:aspect-[4/3]"
+                        : "aspect-video"
+                    } ${reverse ? "rounded-tl-[3rem]" : "rounded-tr-[3rem]"}`}
                   >
-                    <img
-                      alt={s.title}
-                      src={s.image}
-                      className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ocu-blue/40 via-transparent to-transparent" />
+                    {contain ? (
+                      <img
+                        alt={s.title}
+                        src={s.image}
+                        className="absolute inset-0 h-full w-full object-contain object-center p-4 sm:p-5"
+                      />
+                    ) : (
+                      <>
+                        <img
+                          alt={s.title}
+                          src={s.image}
+                          className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-ocu-blue/40 via-transparent to-transparent" />
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="w-full md:w-1/2">

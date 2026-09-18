@@ -182,6 +182,7 @@ export const services = [
     description:
       "Ongoing operations, monitoring and optimization for your cloud environment, backed by a team of Site Reliability Engineers available around the clock.",
     image: "/photos/managedservices.png",
+    imageFit: "contain" as const,
     icon: "workflow",
     href: "/services/managed-cloud-services",
   },
@@ -200,6 +201,7 @@ export const services = [
     description:
       "Modernise legacy applications and build secure, scalable cloud-native solutions using modern architectures, APIs, containers, serverless technologies and DevSecOps.",
     image: "/photos/architecturedesign.png",
+    imageFit: "contain" as const,
     icon: "trending",
     href: "/services/application-services",
   },
