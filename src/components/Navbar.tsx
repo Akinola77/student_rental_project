@@ -203,7 +203,15 @@ function AiMegaMenu({
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <Link
+                  href="/agentic-ai-consulting-services"
+                  role="menuitem"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center text-sm font-semibold text-ocu-blue hover:text-ocu-cyan underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40 rounded-sm"
+                >
+                  Agentic AI Consulting Services
+                </Link>
                 <Link
                   href="/services/ai-automation"
                   role="menuitem"
@@ -260,7 +268,9 @@ export default function Navbar() {
   const [mobile, setMobile] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const isHome = pathname === "/";
-  const isServicePage = pathname.startsWith("/services/");
+  const isServicePage =
+    pathname.startsWith("/services/") ||
+    pathname === "/agentic-ai-consulting-services";
   const inverted = (isHome || isServicePage) && !scrolled && !mobile;
 
   useEffect(() => {
@@ -347,7 +357,10 @@ export default function Navbar() {
             />
             <AiMegaMenu
               inverted={inverted}
-              active={pathname.startsWith("/services/ai-automation")}
+              active={
+                pathname.startsWith("/services/ai-automation") ||
+                pathname === "/agentic-ai-consulting-services"
+              }
             />
             <Link
               href="/overview#industries"
@@ -448,6 +461,13 @@ export default function Navbar() {
                       </Link>
                     )),
                   )}
+                  <Link
+                    href="/agentic-ai-consulting-services"
+                    onClick={closeMobile}
+                    className="block py-2.5 text-sm font-semibold text-ocu-blue hover:text-ocu-cyan min-h-[44px]"
+                  >
+                    Agentic AI Consulting Services
+                  </Link>
                   <Link
                     href="/services/ai-automation"
                     onClick={closeMobile}

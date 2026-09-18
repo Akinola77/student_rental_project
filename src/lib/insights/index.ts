@@ -8,6 +8,7 @@ export {
   getPublishedCategories,
   getPublishedInsights,
   getRelatedInsights,
+  getInsightsByTags,
   isPublicInsight,
   readingTimeMinutes,
   toInsightCard,

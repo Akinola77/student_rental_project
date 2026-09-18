@@ -172,3 +172,23 @@ export function getRelatedInsights(article: Insight, articles: Insight[], limit 
     .sort((a, b) => b.score - a.score || b.item.publishedAt.localeCompare(a.item.publishedAt));
   return ranked.slice(0, limit).map((entry) => entry.item);
 }
+
+export function getInsightsByTags(
+  articles: Insight[],
+  tags: string[],
+  limit = 3,
+): Insight[] {
+  const published = getPublishedInsights(articles);
+  const ranked = published
+    .map((item) => {
+      let score = item.tags.filter((tag) => tags.includes(tag)).length;
+      if (item.category === "AI & Automation") score += 2;
+      return { item, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score || b.item.publishedAt.localeCompare(a.item.publishedAt),
+    );
+  return ranked.slice(0, limit).map((entry) => entry.item);
+}

@@ -47,7 +47,7 @@ export const nav = {
           label: "Agentic AI & AI Agents",
           description:
             "Agents that can reason, use tools and automate workflows.",
-          path: "/services/ai-automation#agentic-ai",
+          path: "/agentic-ai-consulting-services",
         },
       ],
     },
