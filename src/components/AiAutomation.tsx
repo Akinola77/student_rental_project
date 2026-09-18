@@ -36,7 +36,7 @@ const cards: {
     visual: ["AI Agent", "Reason", "Use Tools", "Take Action"],
     visualJoin: "→",
     cta: "Explore Agentic AI",
-    href: "/services/ai-automation#agentic-ai",
+    href: "/agentic-ai-consulting-services",
     Icon: Bot,
   },
   {
@@ -65,7 +65,7 @@ const cards: {
 const secondary = [
   { label: "Amazon Bedrock", href: "/services/ai-automation#ai-bedrock" },
   { label: "Retrieval-Augmented Generation", href: "/services/ai-automation#generative-ai" },
-  { label: "AI Agents", href: "/services/ai-automation#agentic-ai" },
+  { label: "AI Agents", href: "/agentic-ai-consulting-services" },
   { label: "Predictive Analytics", href: "/services/ai-automation#aiops" },
   { label: "AI-Powered DevOps", href: "/services/ai-automation#aiops" },
   { label: "AI Observability", href: "/services/ai-automation#aiops" },

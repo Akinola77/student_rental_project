@@ -1158,6 +1158,13 @@ export default function AiAutomationPage() {
                 observability and human approval where actions affect systems,
                 data or customers.
               </p>
+              <Link
+                href="/agentic-ai-consulting-services"
+                className="mt-6 inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-ocu-blue hover:text-ocu-cyan underline decoration-2 underline-offset-4"
+              >
+                Explore Agentic AI Consulting Services
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
             </div>
           </div>
         </div>

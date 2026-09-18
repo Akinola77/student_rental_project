@@ -14,6 +14,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
   { label: "AI & Automation", href: "/services/ai-automation" },
+  { label: "Agentic AI Consulting", href: "/agentic-ai-consulting-services" },
   { label: "Events", href: "/events" },
   { label: "About", href: "/overview" },
   { label: "Insights", href: "/blogs" },
