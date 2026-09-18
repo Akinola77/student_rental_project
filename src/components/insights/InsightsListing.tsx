@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Insight, InsightCategory } from "@/lib/insights";
+import type { InsightCardData, InsightCategory } from "@/lib/insights";
 import { INSIGHTS_PAGE_SIZE } from "@/lib/insights";
 import { InsightCard } from "./InsightCard";
 
@@ -10,7 +10,7 @@ export default function InsightsListing({
   featuredSlug,
   categories,
 }: {
-  articles: Insight[];
+  articles: InsightCardData[];
   featuredSlug?: string;
   categories: InsightCategory[];
 }) {

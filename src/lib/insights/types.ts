@@ -68,6 +68,18 @@ export type Insight = {
   content: ContentBlock[];
 };
 
+export type InsightCardData = Pick<
+  Insight,
+  | "slug"
+  | "title"
+  | "excerpt"
+  | "category"
+  | "publishedAt"
+  | "heroImage"
+  | "heroImageAlt"
+  | "heroImageFit"
+>;
+
 export const INSIGHTS_PAGE_SIZE = 9;
 export const WORDS_PER_MINUTE = 200;
 
@@ -99,6 +111,19 @@ export function formatInsightDate(isoDate: string): string {
     year: "numeric",
     timeZone: "UTC",
   }).format(new Date(Date.UTC(year, month - 1, day)));
+}
+
+export function toInsightCard(article: Insight): InsightCardData {
+  return {
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    category: article.category,
+    publishedAt: article.publishedAt,
+    heroImage: article.heroImage,
+    heroImageAlt: article.heroImageAlt,
+    heroImageFit: article.heroImageFit,
+  };
 }
 
 export function isPublicInsight(article: Insight): boolean {

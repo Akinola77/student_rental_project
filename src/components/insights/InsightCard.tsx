@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { Insight } from "@/lib/insights";
+import type { InsightCardData } from "@/lib/insights";
 import { formatInsightDate } from "@/lib/insights";
 
 export function InsightCard({
   article,
   sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
 }: {
-  article: Insight;
+  article: InsightCardData;
   sizes?: string;
 }) {
   return (

@@ -1,4 +1,4 @@
-export type { ContentBlock, Insight, InsightCategory, InsightCta, RelatedService } from "./types";
+export type { ContentBlock, Insight, InsightCardData, InsightCategory, InsightCta, RelatedService } from "./types";
 export {
   INSIGHT_CATEGORIES,
   INSIGHTS_PAGE_SIZE,
@@ -10,5 +10,6 @@ export {
   getRelatedInsights,
   isPublicInsight,
   readingTimeMinutes,
+  toInsightCard,
 } from "./types";
 export { insights } from "./articles";

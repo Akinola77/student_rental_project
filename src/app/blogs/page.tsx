@@ -10,6 +10,7 @@ import {
   getPublishedCategories,
   getPublishedInsights,
   insights,
+  toInsightCard,
 } from "@/lib/insights";
 import { absoluteUrl } from "@/lib/site";
 
@@ -60,7 +61,7 @@ export default function InsightsPage() {
       />
       {featured ? <FeaturedInsight article={featured} /> : null}
       <InsightsListing
-        articles={published}
+        articles={published.map(toInsightCard)}
         featuredSlug={featured?.slug}
         categories={categories}
       />
