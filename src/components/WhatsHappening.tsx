@@ -35,7 +35,6 @@ export default function WhatsHappening() {
                 </p>
                 <Link
                   href={item.link}
-                  target="_blank"
                   className="inline-flex items-center gap-2 text-ocu-blue font-semibold hover:text-ocu-cyan underline decoration-2 underline-offset-4"
                 >
                   {item.buttonText}

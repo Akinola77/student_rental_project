@@ -259,8 +259,8 @@ export const news = [
     title: "CloudHight Achieves AWS Advanced Tier Services Partner Status",
     description:
       "CloudHight Consulting has achieved Advanced Tier Services Partner status in the AWS Partner Network (APN) — recognition of our deep technical expertise and track record helping organizations design, migrate, and optimize workloads on AWS.",
-    buttonText: "Read more",
-    link: "https://cloudhight.com/news",
+    buttonText: "Read Article",
+    link: "/blogs/aws-advanced-tier-partner",
   },
 ];
 
@@ -545,53 +545,6 @@ export const events = [
   },
 ];
 
-export const blogs = [
-  {
-    slug: "aws-advanced-tier-partner",
-    category: "Partnerships",
-    title: "CloudHight Achieves AWS Advanced Tier Partner Status",
-    date: "12 March 2026",
-    excerpt:
-      "A look at what Advanced Tier status means for our customers — and how it strengthens our AWS delivery practice.",
-    image: "/photos/aws-badge-partner-advanced-tier-services.png",
-  },
-  {
-    slug: "aiops-for-cloud-operations",
-    category: "AIOps",
-    title: "Why AIOps Is Becoming Essential for Cloud Operations",
-    date: "4 February 2026",
-    excerpt:
-      "How AI-powered observability shortens detection, reduces noise, and gives SRE teams time back.",
-    image: "/photos/aiintegration.png",
-  },
-  {
-    slug: "finops-before-the-bill-arrives",
-    category: "FinOps",
-    title: "FinOps Before the Bill Arrives",
-    date: "18 January 2026",
-    excerpt:
-      "Forecasting, rightsizing and tagging strategies that keep cloud spend predictable as you scale.",
-    image: "/photos/costoptimization.png",
-  },
-  {
-    slug: "devops-outsourcing-without-losing-control",
-    category: "DevOps",
-    title: "Outsourcing DevOps Without Losing Control",
-    date: "9 December 2025",
-    excerpt:
-      "When a fully outsourced DevOps function works — and the operating model that keeps product teams in the loop.",
-    image: "/photos/devopsandautomation.png",
-  },
-  {
-    slug: "migration-cutover-playbook",
-    category: "Cloud Migration",
-    title: "A Practical Playbook for Zero-Downtime Cutover",
-    date: "22 November 2025",
-    excerpt:
-      "Lessons from multi-cloud migrations: rehearsal, rollback and the communications plan that actually works.",
-    image: "/photos/cloudmigration.png",
-  },
-];
 
 export const academyDisclaimer =
   "AWS and related certification names are trademarks of Amazon.com, Inc. or its affiliates. CloudHight Consulting’s certification preparation programs are designed to support candidates preparing for AWS Certification examinations.";
