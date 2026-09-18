@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { legacyRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "localhost"],
@@ -14,6 +15,7 @@ const nextConfig: NextConfig = {
         destination: "/services/cloud-ai-skills-enablement",
         permanent: true,
       },
+      ...legacyRedirects,
     ];
   },
 };

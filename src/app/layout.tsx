@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ChatWidget from "@/components/ChatWidget";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,6 +20,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: "CloudHight Consulting — AWS Advanced Consulting Partner",
     template: "%s — CloudHight Consulting",

@@ -77,6 +77,7 @@ export function GradientHero({
 }
 
 export function PageHero({
+  eyebrow,
   title,
   subtitle,
   image = "/photos/transformcloudjourney.jpg",
@@ -84,6 +85,7 @@ export function PageHero({
   primary,
   secondary,
 }: {
+  eyebrow?: string;
   title: string;
   subtitle: string;
   image?: string;
@@ -103,6 +105,11 @@ export function PageHero({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        {eyebrow ? (
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-200 mb-4">
+            {eyebrow}
+          </p>
+        ) : null}
         <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
           {title}
         </h1>

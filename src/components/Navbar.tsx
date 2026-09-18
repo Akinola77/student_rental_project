@@ -379,6 +379,7 @@ export default function Navbar() {
             <Link
               href="/blogs"
               className={`${linkBase} ${insightsActive ? "text-ocu-cyan" : idle}`}
+              aria-current={insightsActive ? "page" : undefined}
             >
               Insights
             </Link>
@@ -499,7 +500,10 @@ export default function Navbar() {
                 <Link
                   href="/blogs"
                   onClick={closeMobile}
-                  className="block py-3 text-base font-medium text-ocu-blue hover:text-ocu-cyan min-h-[44px]"
+                  className={`block py-3 text-base font-medium min-h-[44px] ${
+                    insightsActive ? "text-ocu-cyan" : "text-ocu-blue hover:text-ocu-cyan"
+                  }`}
+                  aria-current={insightsActive ? "page" : undefined}
                 >
                   Insights
                 </Link>
