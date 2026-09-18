@@ -4,7 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { caseStudies } from "@/lib/data";
 import { PageHero } from "@/components/Heros";
 
-export const metadata: Metadata = { title: "Case Studies" };
+export const metadata: Metadata = {
+  title: "Case Studies",
+  robots: { index: false, follow: false },
+};
 
 export default function CaseStudiesPage() {
   return (

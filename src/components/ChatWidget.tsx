@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const SUGGESTED = [
   "What AWS services does CloudHight specialize in?",
   "How can CloudHight help with cloud migration?",
-  "What case studies does CloudHight have?",
+  "What AI services does CloudHight provide?",
   "How do I get started with a project with CloudHight?",
 ];
 
