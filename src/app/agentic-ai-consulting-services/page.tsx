@@ -651,13 +651,11 @@ export default function AgenticAiConsultingPage() {
               <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
                 Build Agentic AI That Works in the Real World
               </h1>
-              <div className="mb-6 inline-flex max-w-full rounded-2xl bg-white p-4 sm:p-5">
-                <div>
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-ocu-blue">
-                    Validated AWS Expertise
-                  </p>
-                  <AwsAgenticBadge size="lg" priority />
-                </div>
+              <div className="mb-6 max-w-full">
+                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-200">
+                  Validated AWS Expertise
+                </p>
+                <AwsAgenticBadge size="lg" priority />
               </div>
               <p className="mb-4 text-lg leading-relaxed text-white/85">
                 Move beyond AI experiments.
@@ -802,9 +800,9 @@ export default function AgenticAiConsultingPage() {
 
       <section id="aws-competency" className="scroll-mt-28 bg-[#070b1a] px-6 py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex justify-center rounded-3xl bg-white p-8 lg:justify-start">
+          <div className="flex justify-center lg:justify-start">
             <div>
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-ocu-blue">
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-200">
                 Official AWS credential
               </p>
               <AwsAgenticBadge size="lg" />
@@ -1037,7 +1035,7 @@ export default function AgenticAiConsultingPage() {
               eyebrow="Why CloudHight?"
               title="AI Expertise Meets Cloud Engineering"
             />
-            <div className="inline-flex rounded-2xl bg-white p-4 shadow-sm lg:mb-12">
+            <div className="lg:mb-12">
               <AwsAgenticBadge size="md" />
             </div>
           </div>
@@ -1175,9 +1173,7 @@ export default function AgenticAiConsultingPage() {
             </Link>
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="rounded-2xl bg-white p-5">
-              <AwsAgenticBadge size="md" />
-            </div>
+            <AwsAgenticBadge size="md" />
           </div>
           <p className="mt-6 text-sm font-semibold text-cyan-200">
             AWS Advanced Tier Services Partner
