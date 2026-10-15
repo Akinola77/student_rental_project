@@ -10,14 +10,24 @@ export default function OverviewPage() {
     <div className="bg-white">
       <PageHero title={overview.heroTitle} subtitle={overview.heroSubtitle} />
       <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl font-bold text-ocu-blue mb-6">
+            <h2 className="text-3xl font-bold text-ocu-blue mb-4">
               {overview.whoWeAreTitle}
             </h2>
-            <p className="text-gray-600 leading-relaxed text-justify">
-              {overview.whoWeAreText}
-            </p>
+            <h3 className="text-xl font-semibold text-ocu-blue mb-6 leading-snug">
+              {overview.whoWeAreHeadline}
+            </h3>
+            <div className="space-y-4">
+              {overview.whoWeAreParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-gray-600 leading-relaxed text-justify"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
           <div className="rounded-3xl overflow-hidden shadow-xl">
             <img

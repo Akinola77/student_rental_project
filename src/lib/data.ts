@@ -280,8 +280,13 @@ export const overview = {
   heroTitle: "Overview",
   heroSubtitle: "Learn about who we are, what drives us, and where we're heading",
   whoWeAreTitle: "Who We Are",
-  whoWeAreText:
-    "As thought leaders with a track record of successful project execution, CloudHight Consulting is committed to fueling your innovation with an in-house team of consultants who bring deep industry expertise and deliver results fast. From vision to adoption, we partner with customers using an empathetic approach to understand their challenges and provide custom-built solutions.",
+  whoWeAreHeadline: "Your Trusted Partner for Cloud Transformation and AI Innovation",
+  whoWeAreParagraphs: [
+    "CloudHight Consulting is an Ireland-based AWS Advanced Tier Services Partner specialising in cloud transformation, DevOps, platform engineering, managed cloud services and artificial intelligence.",
+    "With recognised expertise in Agentic AI, we help organisations modernise their technology, accelerate innovation and turn emerging technologies into secure, scalable, production-ready solutions.",
+    "From cloud strategy and migration to intelligent automation and AI-powered applications, we combine deep technical expertise with a business-first approach to deliver measurable outcomes.",
+    "Our mission is simple: to help organisations innovate faster, operate smarter and scale with confidence.",
+  ],
   companyImage: "/photos/transformcloudjourney.jpg",
   stats: [
     { value: 30, suffix: "+", label: "Engineers and Developers" },
