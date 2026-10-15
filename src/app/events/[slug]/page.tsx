@@ -28,9 +28,13 @@ export default async function EventDetailPage({ params }: Props) {
         </p>
         <h1 className="text-4xl font-extrabold text-ocu-blue mb-4">{ev.title}</h1>
         <p className="text-gray-500 mb-6">
-          {ev.month} {ev.day} · {ev.location} · {ev.attendees}
+          {[ev.dateLabel ?? `${ev.month} ${ev.day}`, ev.location, ev.attendees]
+            .filter(Boolean)
+            .join(" · ")}
         </p>
-        <p className="text-lg text-gray-700 leading-relaxed mb-10">{ev.summary}</p>
+        <p className="text-lg text-gray-700 leading-relaxed mb-10 whitespace-pre-line">
+          {ev.body ?? ev.summary}
+        </p>
         <Link
           href="/request-event"
           className="inline-flex px-6 py-3 bg-ocu-blue text-white rounded-lg font-bold"

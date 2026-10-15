@@ -565,6 +565,18 @@ export const events = [
     summary:
       "A day covering multi-cloud architecture, DevOps automation, and hands-on workshops for local teams.",
   },
+  {
+    slug: "aws-ai-accelerator-2026",
+    title: "AWS AI Accelerator 2026",
+    month: "Sep",
+    day: "27–28",
+    date: "2026-09-27",
+    dateLabel: "27–28 September 2026",
+    status: "past" as const,
+    summary:
+      "A two-day AWS AI Accelerator for technology professionals, developers, AI enthusiasts and aspiring technology entrepreneurs building and launching AI solutions on AWS.",
+    body: "A two-day AWS AI Accelerator event designed to engage technology professionals, developers, AI enthusiasts, and aspiring technology entrepreneurs who are interested in building and launching AI solutions using AWS.\n\nThrough this program, we are bringing together potential AWS customers and future technology decision-makers to introduce them to AWS AI and Generative AI capabilities. Participants will explore practical AI use cases, experience AWS solutions through demonstrations, and understand how they can use AWS to develop, deploy, and scale their AI projects.",
+  },
 ];
 
 
