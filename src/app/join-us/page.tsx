@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/Heros";
+import HashScroll from "@/components/HashScroll";
 import InquiryForm from "@/components/InquiryForm";
+import { site } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Join Us" };
 
@@ -68,22 +71,23 @@ const positions = [
       "Excellent stakeholder communication skills",
     ],
   },
-  {
-    title: "Site Reliability Engineer",
-    department: "Managed Services",
-    location: "Remote (Ireland/EU)",
-    type: "Full-time",
-    requirements: [
-      "Experience supporting production systems under an on-call rotation",
-      "Strong observability/monitoring background (CloudWatch, Grafana, etc.)",
-      "Comfortable automating incident response and remediation",
-    ],
-  },
 ];
 
-export default function JoinUsPage() {
+export default async function JoinUsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ role?: string }>;
+}) {
+  const { role } = await searchParams;
+  const defaultRole =
+    typeof role === "string" &&
+    positions.some((p) => p.title === role.trim())
+      ? role.trim()
+      : undefined;
+
   return (
     <div className="bg-white">
+      <HashScroll />
       <PageHero
         title="Careers at CloudHight"
         subtitle="The specialist IT recruitment and consulting team accelerating journeys to the cloud."
@@ -150,26 +154,39 @@ export default function JoinUsPage() {
                     <li key={r}>{r}</li>
                   ))}
                 </ul>
+                <Link
+                  href={`/join-us?role=${encodeURIComponent(p.title)}#apply`}
+                  className="inline-flex mt-5 px-5 py-2.5 bg-ocu-blue text-white rounded-lg text-sm font-semibold min-h-[44px] items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40"
+                >
+                  Apply now
+                </Link>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6">
+      <section id="apply" className="py-20 px-6 scroll-mt-28">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gradient mb-3">
-              Don&apos;t See the Right Role?
+              Apply for a Role
             </h2>
-            <p className="text-gray-600">
-              We&apos;re always looking for talented cloud, DevOps and security
-              professionals. Send us your CV and we&apos;ll keep you in mind for
-              future opportunities.
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Choose an open role above and use the form to apply, or send a
+              speculative application. Attach your CV and a short cover note.
+              You can also email{" "}
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent("Job application")}`}
+                className="text-ocu-cyan font-semibold underline decoration-2 underline-offset-4"
+              >
+                {site.email}
+              </a>{" "}
+              with the role in the subject line.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
-            <InquiryForm variant="job" />
+            <InquiryForm variant="job" defaultRole={defaultRole} />
           </div>
         </div>
       </section>

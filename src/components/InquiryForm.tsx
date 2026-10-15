@@ -8,10 +8,12 @@ export default function InquiryForm({
   variant,
   defaultProgram,
   defaultSubject,
+  defaultRole,
 }: {
   variant: Variant;
   defaultProgram?: string;
   defaultSubject?: string;
+  defaultRole?: string;
 }) {
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -92,10 +94,20 @@ export default function InquiryForm({
           <Field label="Full Name" name="name" required />
           <Field label="Email" name="email" type="email" required />
           <Field label="Phone" name="phone" />
-          <Field label="Role of Interest" name="role" />
+          <Select
+            label="Role of Interest"
+            name="role"
+            required
+            defaultValue={defaultRole}
+            options={[
+              "DevOps Engineer",
+              "Cloud Solutions Architect",
+              "Other / speculative application",
+            ]}
+          />
         </div>
         <label className="block text-sm font-medium text-gray-700">
-          CV (PDF or document)
+          CV (PDF or document) *
           <input
             type="file"
             name="resume"
@@ -110,6 +122,11 @@ export default function InquiryForm({
         >
           {busy ? "Submitting…" : "Submit Application"}
         </button>
+        <p className="text-sm text-gray-500">
+          <strong className="font-semibold text-gray-600">What happens next?</strong>{" "}
+          Our team will review your application and contact you if we would like
+          to discuss the role further.
+        </p>
       </form>
     );
   }
@@ -280,20 +297,29 @@ function Select({
   name,
   options,
   defaultValue,
+  required,
 }: {
   label: string;
   name: string;
   options: string[];
   defaultValue?: string;
+  required?: boolean;
 }) {
   return (
     <label className="block text-sm font-medium text-gray-700">
       {label}
+      {required ? " *" : ""}
       <select
         name={name}
-        defaultValue={defaultValue}
+        required={required}
+        defaultValue={defaultValue ?? (required ? "" : undefined)}
         className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ocu-cyan/30"
       >
+        {required && !defaultValue ? (
+          <option value="" disabled>
+            Select a role
+          </option>
+        ) : null}
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
