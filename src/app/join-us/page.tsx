@@ -186,7 +186,11 @@ export default async function JoinUsPage({
             </p>
           </div>
           <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
-            <InquiryForm variant="job" defaultRole={defaultRole} />
+            <InquiryForm
+              key={defaultRole ?? "open"}
+              variant="job"
+              defaultRole={defaultRole}
+            />
           </div>
         </div>
       </section>
