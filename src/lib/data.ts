@@ -566,6 +566,18 @@ export const events = [
       "A day covering multi-cloud architecture, DevOps automation, and hands-on workshops for local teams.",
   },
   {
+    slug: "aws-agentic-ai-leadership-connect",
+    title: "AWS Agentic AI Leadership Connect",
+    month: "Sep",
+    day: "22",
+    date: "2026-09-22",
+    dateLabel: "22 September 2026",
+    status: "past" as const,
+    summary:
+      "An exclusive engagement for business and technology leaders exploring how Agentic AI can drive meaningful business transformation.",
+    body: "An exclusive engagement bringing together business and technology leaders to explore how Agentic AI can drive meaningful business transformation.\n\nThrough this event, we will showcase how AI agents can reason, plan, take action, and automate complex workflows to improve customer experiences, increase operational efficiency, enhance workforce productivity, and accelerate business growth.\n\nThe session will focus on practical, high-value use cases relevant to organizations while creating an opportunity to engage with customers, understand their priorities, identify potential Agentic AI workloads, and explore how AWS can help turn these opportunities into scalable, secure, and impactful solutions.\n\nOur goal is to move the Agentic AI conversation from possibility to action, helping customers identify real business opportunities and define the next steps toward implementation.",
+  },
+  {
     slug: "aws-ai-accelerator-2026",
     title: "AWS AI Accelerator 2026",
     month: "Sep",
