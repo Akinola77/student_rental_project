@@ -302,7 +302,8 @@ export default function Navbar() {
   const servicesActive = nav.services.some((i) => isActivePath(pathname, i.path));
   const workItems = publicNavItems(nav.work);
   const workActive = workItems.some((i) => isActivePath(pathname, i.path));
-  const aboutActive = nav.about.some((i) => isActivePath(pathname, i.path));
+  const aboutItems = publicNavItems(nav.about);
+  const aboutActive = aboutItems.some((i) => isActivePath(pathname, i.path));
   const insightsActive = pathname.startsWith("/blogs");
   const linkBase =
     "flex items-center text-sm font-medium transition-all duration-300 hover:text-ocu-cyan min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/50 rounded-sm";
@@ -378,7 +379,7 @@ export default function Navbar() {
             ) : null}
             <NavDropdown
               label="About"
-              items={nav.about}
+              items={aboutItems}
               inverted={inverted}
               active={aboutActive}
             />
@@ -499,7 +500,7 @@ export default function Navbar() {
                   </Link>
                 ) : null}
                 <MobileAccordion label="About">
-                  {nav.about.map((i) => (
+                  {aboutItems.map((i) => (
                     <Link
                       key={i.path}
                       href={i.path}

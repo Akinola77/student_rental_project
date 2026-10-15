@@ -110,7 +110,8 @@ export const nav = {
   ],
   about: [
     { label: "About CloudHight", path: "/overview" },
-    { label: "Team", path: "/team" },
+    // Unpublished for launch. Re-enable when the team page is ready to show.
+    { label: "Team", path: "/team", public: false },
     { label: "Careers", path: "/join-us" },
     { label: "Partners", path: "/academic-alliance" },
   ],

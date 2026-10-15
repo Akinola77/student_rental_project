@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { team } from "@/lib/data";
 import { PageHero } from "@/components/Heros";
 
-export const metadata: Metadata = { title: "Team" };
+export const metadata: Metadata = {
+  title: "Team",
+  robots: { index: false, follow: false },
+};
 
 export default function TeamPage() {
   return (
