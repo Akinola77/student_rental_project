@@ -577,6 +577,18 @@ export const events = [
       "A two-day AWS AI Accelerator for technology professionals, developers, AI enthusiasts and aspiring technology entrepreneurs building and launching AI solutions on AWS.",
     body: "A two-day AWS AI Accelerator event designed to engage technology professionals, developers, AI enthusiasts, and aspiring technology entrepreneurs who are interested in building and launching AI solutions using AWS.\n\nThrough this program, we are bringing together potential AWS customers and future technology decision-makers to introduce them to AWS AI and Generative AI capabilities. Participants will explore practical AI use cases, experience AWS solutions through demonstrations, and understand how they can use AWS to develop, deploy, and scale their AI projects.",
   },
+  {
+    slug: "aws-ai-builders-business-summit-2026",
+    title: "AWS AI Builders & Business Summit 2026",
+    month: "Oct",
+    day: "20",
+    date: "2026-10-20",
+    dateLabel: "20 October 2026",
+    status: "past" as const,
+    summary:
+      "A customer-focused summit bringing together business leaders, decision-makers, entrepreneurs and technology builders to explore how AI on AWS can solve real business challenges.",
+    body: "AWS AI Builders & Business Summit 2026 is a customer-focused event designed to bring together business leaders, decision-makers, entrepreneurs, and technology builders to explore how AI on AWS can solve real business challenges and create measurable business value.\n\nWe are organizing this event to connect organizations actively exploring AI adoption with practical solutions, AWS expertise, and implementation capabilities. Through business-focused sessions, live AI demonstrations, real-world use cases, and one-to-one conversations, participants will identify opportunities where Generative AI and Agentic AI can improve operations, automate processes, enhance customer experiences, and create new digital products.",
+  },
 ];
 
 
