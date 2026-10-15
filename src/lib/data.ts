@@ -542,6 +542,19 @@ export const events = [
       "A roundtable discussion on when and how to outsource the DevOps function without losing control.",
   },
   {
+    slug: "skills-challenge-hackathon-2025",
+    title: "Skills Challenge — Solving Real-World Problems Hackathon",
+    month: "Aug",
+    day: "23",
+    date: "2025-08-23",
+    dateLabel: "23 August 2025",
+    location: "Dublin, Ireland",
+    status: "past" as const,
+    summary:
+      "A live Dublin hackathon with a global livestream, where university students, alumni and early-career professionals apply AWS to real-world problems across Cloud DevOps, Artificial Intelligence and Cybersecurity.",
+    body: "Live event held in Dublin, Ireland with a livestream for a global audience. The goal of this event is to engage university students, alumni, and early-career professionals in a hands-on learning experience where they can apply cloud technologies to solve real-world problems. This will be both an educational and community-building event, designed to showcase how AWS enables innovation through its tools and services.\n\nThe Hackathon will feature three main tracks: Cloud DevOps, Artificial Intelligence, and Cybersecurity, where participants will work in teams to develop creative solutions using AWS services such as AWS Lambda, SageMaker, CodePipeline, and IAM. These tracks were chosen because they reflect high-demand skill areas and offer practical value to participants and organisations alike.\n\nThis event aims to promote AWS best practices in real-world applications and help uncover new talent. Participants will not only gain valuable technical exposure but will also build confidence in using AWS services to solve challenges. Winners from each track will receive AWS-sponsored mentorships, branded items, and scholarships to continue their learning journey.",
+  },
+  {
     slug: "aiops-tech-impact-future-forum-2025",
     title:
       "AIOps Tech Impact & Future Forum: Real-Time Intelligence, Automation, and Resilience",
