@@ -542,6 +542,19 @@ export const events = [
       "A roundtable discussion on when and how to outsource the DevOps function without losing control.",
   },
   {
+    slug: "aiops-tech-impact-future-forum-2025",
+    title:
+      "AIOps Tech Impact & Future Forum: Real-Time Intelligence, Automation, and Resilience",
+    month: "Oct",
+    day: "14",
+    date: "2025-10-14",
+    dateLabel: "14 October 2025",
+    status: "past" as const,
+    summary:
+      "A two-hour forum showcasing CloudHight’s AIOps Demo Platform — AWS-native services and AI/ML for real-time monitoring, anomaly detection, automated incident response and self-healing workflows.",
+    body: "The event “AIOps Tech Impact & Future Forum: Real-Time Intelligence, Automation, and Resilience” will showcase CloudHight Consulting’s AIOps Demo Platform, designed to highlight how AWS-native services combined with AI/ML can modernise IT operations through real-time monitoring, anomaly detection, automated incident response, self-healing workflows, and enhanced security.\n\nTargeting CTOs, CIOs, DevOps managers, SRE teams, and enterprises undergoing digital transformation, the two-hour session will feature a keynote on business challenges, customer use cases, a live demo of end-to-end capabilities, a success story, networking, and interactive discussions.\n\nThe goal of the event is to demonstrate the business value of AIOps, educate technical teams on automation with AWS services, and position CloudHight Consulting as a trusted partner for organisations seeking to transform their IT operations.",
+  },
+  {
     slug: "aiops-finops-breakfast-briefing",
     title: "AIOps & FinOps Breakfast Briefing",
     month: "Feb",
