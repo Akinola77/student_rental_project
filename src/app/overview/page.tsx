@@ -37,17 +37,6 @@ export default function OverviewPage() {
             />
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {overview.stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-4xl md:text-5xl font-extrabold text-gradient">
-                {s.value}
-                {s.suffix}
-              </p>
-              <p className="text-sm text-gray-600 mt-2">{s.label}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="py-16 px-6 bg-ocu-bg">

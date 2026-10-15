@@ -288,12 +288,6 @@ export const overview = {
     "Our mission is simple: to help organisations innovate faster, operate smarter and scale with confidence.",
   ],
   companyImage: "/photos/who-we-are-cloud-platform.jpg",
-  stats: [
-    { value: 30, suffix: "+", label: "Engineers and Developers" },
-    { value: 50, suffix: "+", label: "Happy & Satisfied Customers" },
-    { value: 270, suffix: "+", label: "Server Cloud Launched" },
-    { value: 25, suffix: "+", label: "Ongoing Client Support" },
-  ],
   missionTitle: "Our Mission",
   missionText:
     "To simplify business transformation by applying thought leadership and innovation, guiding every client's journey to the cloud with minimal disruption and measurable outcomes.",
