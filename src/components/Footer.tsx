@@ -98,20 +98,12 @@ export default function Footer() {
             <p className="text-sm text-gray-300">
               © {new Date().getFullYear()} {site.name}. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/admin/login"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Content Admin
-              </Link>
-            </div>
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-white/60 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
