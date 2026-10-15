@@ -287,7 +287,7 @@ export const overview = {
     "From cloud strategy and migration to intelligent automation and AI-powered applications, we combine deep technical expertise with a business-first approach to deliver measurable outcomes.",
     "Our mission is simple: to help organisations innovate faster, operate smarter and scale with confidence.",
   ],
-  companyImage: "/photos/transformcloudjourney.jpg",
+  companyImage: "/photos/who-we-are-cloud-platform.jpg",
   stats: [
     { value: 30, suffix: "+", label: "Engineers and Developers" },
     { value: 50, suffix: "+", label: "Happy & Satisfied Customers" },

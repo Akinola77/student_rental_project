@@ -29,11 +29,11 @@ export default function OverviewPage() {
               ))}
             </div>
           </div>
-          <div className="rounded-3xl overflow-hidden shadow-xl">
+          <div className="rounded-3xl overflow-hidden shadow-xl bg-[#00000a] aspect-square">
             <img
               src={overview.companyImage}
-              alt="CloudHight Consulting"
-              className="w-full h-full object-cover"
+              alt="Illustration of CloudHight cloud, security, automation and data services"
+              className="h-full w-full object-contain object-center"
             />
           </div>
         </div>
