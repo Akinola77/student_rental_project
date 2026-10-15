@@ -11,7 +11,7 @@ const benefits = [
   {
     title: "Financial Incentives",
     description:
-      "Up to €2,000 referral bonus for every successful deal closed, plus priority access to additional incentive programs backed by AWS.",
+      "Earn attractive referral commissions for successful business opportunities, with access to additional performance-based incentives and partner benefits.",
     cta: "Discuss a Referral",
   },
   {
