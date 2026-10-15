@@ -83,20 +83,30 @@ export default function EventsPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-ocu-blue">{e.title}</h3>
-                  {e.location || e.attendees || e.dateLabel ? (
+                  {e.location || e.attendees || e.dateLabel || e.format ? (
                     <p className="text-sm text-gray-500 mt-1">
-                      {[e.dateLabel, e.location, e.attendees]
+                      {[e.dateLabel, e.format, e.location, e.attendees]
                         .filter(Boolean)
                         .join(" · ")}
                     </p>
                   ) : null}
                   <p className="text-gray-600 mt-3">{e.summary}</p>
-                  <Link
-                    href={`/events/${e.slug}`}
-                    className="inline-block mt-4 text-ocu-cyan font-semibold"
-                  >
-                    View Details
-                  </Link>
+                  <div className="mt-4 flex flex-wrap gap-4">
+                    <Link
+                      href={`/events/${e.slug}`}
+                      className="inline-block text-ocu-cyan font-semibold"
+                    >
+                      View Details
+                    </Link>
+                    {e.ctaHref ? (
+                      <Link
+                        href={e.ctaHref}
+                        className="inline-block text-ocu-blue font-semibold"
+                      >
+                        {e.ctaLabel ?? "Register Now"}
+                      </Link>
+                    ) : null}
+                  </div>
                 </div>
               </article>
             ))}

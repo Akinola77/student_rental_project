@@ -542,6 +542,83 @@ export const events = [
       "A roundtable discussion on when and how to outsource the DevOps function without losing control.",
   },
   {
+    slug: "beyond-aiops-agentic-ai-aws",
+    title:
+      "Beyond AIOps: Building Autonomous IT Operations with Agentic AI on AWS",
+    subtitle:
+      "From Reactive Monitoring to Intelligent, Self-Healing Infrastructure",
+    month: "Nov",
+    day: "25",
+    date: "2026-11-25",
+    dateLabel: "Wednesday, 25 November 2026",
+    format: "Live Technical Demonstration & Expert Insights",
+    status: "upcoming" as const,
+    summary:
+      "An interactive session exploring Agentic AI-powered autonomous operations on AWS — from incident detection and investigation to human-in-the-loop approval and automated recovery.",
+    about: [
+      "What if your IT infrastructure could detect incidents, investigate their root causes, recommend corrective actions and automatically recover — with human oversight where it matters most?",
+      "Join CloudHight Consulting for an interactive session exploring the next evolution of IT operations: Agentic AI-powered autonomous operations on AWS.",
+      "Traditional IT monitoring helps organisations identify problems, but resolving incidents often requires significant manual investigation, coordination and intervention. As cloud environments become increasingly complex, IT teams need to move beyond reactive monitoring towards intelligent, automated and resilient operations.",
+      "In this session, we'll demonstrate how Agentic AI can transform IT operations by combining real-time observability, AI-driven incident investigation, intelligent decision-making and automated remediation.",
+      "Using AWS-native services, including Amazon Bedrock, Amazon CloudWatch, Amazon EventBridge, AWS Lambda and AWS Systems Manager, we'll showcase how AI agents can work alongside engineering teams to accelerate incident resolution, reduce operational overhead and improve service reliability.",
+    ],
+    experienceTitle: "Live Demo: From Incident Detection to Automated Recovery",
+    experienceIntro:
+      "Watch a realistic cloud application experience an operational incident and see how an AI-powered workflow responds:",
+    demoSteps: [
+      {
+        title: "Real-Time Incident Detection",
+        body: "Amazon CloudWatch identifies abnormal application behaviour and triggers an alert.",
+      },
+      {
+        title: "AI-Powered Investigation",
+        body: "An AI agent analyses telemetry, investigates potential causes and identifies likely remediation options.",
+      },
+      {
+        title: "Intelligent Recommendations",
+        body: "The agent proposes a corrective action, supported by relevant operational evidence.",
+      },
+      {
+        title: "Human-in-the-Loop Approval",
+        body: "An engineer reviews and approves the recommended action before execution.",
+      },
+      {
+        title: "Automated Remediation",
+        body: "AWS automation services execute the approved remediation workflow.",
+      },
+      {
+        title: "Recovery Verification",
+        body: "The system checks application health and confirms whether the remediation has successfully restored service.",
+      },
+    ],
+    experienceOutro:
+      "The demonstration will highlight how organisations can introduce greater autonomy into IT operations while maintaining appropriate security controls, governance and human oversight.",
+    takeaways: [
+      "How Agentic AI extends traditional AIOps beyond monitoring and anomaly detection.",
+      "How AI agents can support incident investigation, root-cause analysis and operational decision-making.",
+      "How AWS-native services can be integrated to build intelligent remediation workflows.",
+      "How human approval, access controls and auditability help organisations adopt autonomous operations responsibly.",
+      "Practical opportunities to reduce mean time to resolution (MTTR), improve operational efficiency and strengthen cloud resilience.",
+    ],
+    audience: [
+      "CTOs, CIOs and IT Directors",
+      "Heads of Cloud Infrastructure and IT Operations",
+      "DevOps and Platform Engineering Leaders",
+      "Site Reliability Engineers (SREs)",
+      "Cloud Architects and Security Professionals",
+      "Technology and Digital Transformation Leaders",
+    ],
+    whyAttend: [
+      "The future of IT operations is not just about knowing when something goes wrong — it's about enabling systems to intelligently investigate, respond and recover.",
+      "Whether your organisation is exploring AIOps, investing in cloud automation or evaluating practical applications of Agentic AI, this session will provide insights and a live demonstration of what is possible with AWS.",
+      "Join CloudHight Consulting on 25 November 2026 and discover how to take the next step towards intelligent, resilient and increasingly autonomous IT operations.",
+    ],
+    ctaLabel: "Register Now — Reserve Your Place",
+    ctaHref:
+      "/contact?subject=" +
+      encodeURIComponent("Register: Beyond AIOps — 25 November 2026"),
+  },
+  {
     slug: "skills-challenge-hackathon-2025",
     title: "Skills Challenge — Solving Real-World Problems Hackathon",
     month: "Aug",
