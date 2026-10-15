@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -27,6 +26,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { PageHero } from "@/components/Heros";
+import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 const consultHref =
   "/contact?subject=" + encodeURIComponent("Book a DevOps Consultation");
@@ -907,29 +907,7 @@ export default function DevOpsPlatformEngineeringPage() {
       <section className="py-20 px-6 bg-ocu-bg">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Why CloudHight for DevOps & Platform Engineering?" />
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
-            <Image
-              src="/photos/aws-badge-partner-advanced-tier-services.png"
-              alt="AWS Partner — Advanced Tier Services"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-            <Image
-              src="/photos/business-allstar-2026.png"
-              alt="Business All-Star 2026 Accredited"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-            <Image
-              src="/photos/badge-devops-institute.png"
-              alt="DevOps Institute"
-              width={180}
-              height={180}
-              className="h-24 w-auto object-contain"
-            />
-          </div>
+          <CredentialRow items={["advanced", "waf", "allstar"]} />
           <ul className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {whyPoints.map((point) => (
               <li

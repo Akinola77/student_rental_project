@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     template: "%s — CloudHight Consulting",
   },
   description: "Transforming businesses through innovative AWS cloud solutions.",
-  icons: { icon: "/photos/cloudhightlogo.png" },
+  icons: {
+    icon: "/photos/cloudhight-icon.png",
+    apple: "/photos/cloudhightlogo.png",
+  },
 };
 
 export default function RootLayout({

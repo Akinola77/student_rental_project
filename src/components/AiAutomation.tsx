@@ -1,7 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Bot, Brain, Eye, ShieldCheck } from "lucide-react";
+import {
+  AwsAgenticBadge,
+  AwsAiCompetencyBadge,
+} from "@/components/agentic-ai/AwsBadges";
 
 const discussHref =
   "/contact?subject=" + encodeURIComponent("Discuss Your AI Initiative");
@@ -36,7 +39,7 @@ const cards: {
     visual: ["AI Agent", "Reason", "Use Tools", "Take Action"],
     visualJoin: "→",
     cta: "Explore Agentic AI",
-    href: "/services/ai-automation#agentic-ai",
+    href: "/agentic-ai-consulting-services",
     Icon: Bot,
   },
   {
@@ -65,7 +68,7 @@ const cards: {
 const secondary = [
   { label: "Amazon Bedrock", href: "/services/ai-automation#ai-bedrock" },
   { label: "Retrieval-Augmented Generation", href: "/services/ai-automation#generative-ai" },
-  { label: "AI Agents", href: "/services/ai-automation#agentic-ai" },
+  { label: "AI Agents", href: "/agentic-ai-consulting-services" },
   { label: "Predictive Analytics", href: "/services/ai-automation#aiops" },
   { label: "AI-Powered DevOps", href: "/services/ai-automation#aiops" },
   { label: "AI Observability", href: "/services/ai-automation#aiops" },
@@ -235,13 +238,12 @@ export default function AiAutomation() {
               Discuss Your AI Initiative
               <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
-            <Image
-              src="/photos/aws-ai-services-competency.png"
-              alt="AWS Partner — AI Services Competency"
-              width={180}
-              height={90}
-              className="h-16 w-auto object-contain bg-white rounded-lg p-2"
-            />
+            <span className="inline-flex items-center gap-3">
+              <span className="inline-flex bg-white rounded-lg p-2">
+                <AwsAiCompetencyBadge size={64} />
+              </span>
+              <AwsAgenticBadge size="sm" />
+            </span>
           </div>
         </div>
       </div>

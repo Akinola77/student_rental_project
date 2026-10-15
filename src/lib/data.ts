@@ -47,7 +47,7 @@ export const nav = {
           label: "Agentic AI & AI Agents",
           description:
             "Agents that can reason, use tools and automate workflows.",
-          path: "/services/ai-automation#agentic-ai",
+          path: "/agentic-ai-consulting-services",
         },
       ],
     },
@@ -230,27 +230,38 @@ export const alliances = [
   {
     name: "AWS Partner — Advanced Tier Services",
     logo: "/photos/aws-badge-partner-advanced-tier-services.png",
-    link: "https://aws.amazon.com",
+    link: "https://aws.amazon.com/partners/",
+    layout: "square" as const,
   },
   {
     name: "AWS Partner — AI Services Competency",
-    logo: "/photos/aws-ai-services-competency.png",
-    link: "https://aws.amazon.com",
+    logo: "/photos/aws-partner-ai-services-competency.png",
+    link: "https://aws.amazon.com/partners/",
+    layout: "square" as const,
   },
   {
-    name: "Business All-Star 2026 Accredited",
-    logo: "/photos/business-allstar-2026.png",
-    link: "",
+    name: "AWS Partner — Amazon RDS Delivery",
+    logo: "/photos/aws-partner-amazon-rds-delivery.png",
+    link: "https://aws.amazon.com/partners/",
+    layout: "square" as const,
   },
   {
-    name: "CompTIA Authorized Delivery Partner",
-    logo: "/photos/badge-comptia.png",
-    link: "https://www.comptia.org",
+    name: "AWS Partner — AWS WAF Delivery",
+    logo: "/photos/aws-partner-aws-waf-delivery.png",
+    link: "https://aws.amazon.com/partners/",
+    layout: "square" as const,
   },
   {
-    name: "DevOps Institute",
-    logo: "/photos/badge-devops-institute.png",
-    link: "https://www.devopsinstitute.com",
+    name: "AWS Partner — AI Services Competency — Agentic AI Consulting Services",
+    logo: "/photos/aws-partner-ai-services-competency-agentic-ai.png",
+    link: "https://aws.amazon.com/partners/",
+    layout: "lockup" as const,
+  },
+  {
+    name: "AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery",
+    logo: "/photos/aws-partner-advanced-tier-specializations.png",
+    link: "https://aws.amazon.com/partners/",
+    layout: "lockup" as const,
   },
 ];
 
@@ -358,16 +369,27 @@ export const overview = {
     {
       title: "AWS AI Services Competency",
       description:
-        "Certified AWS Partner for AI Services, helping organisations adopt intelligent cloud operations.",
+        "AWS-validated partner expertise helping organisations design and implement AI solutions on AWS.",
     },
     {
-      title: "CompTIA Authorized Delivery Partner",
-      description: "Accredited delivery partner within the CompTIA network.",
-    },
-    {
-      title: "DevOps Institute Member",
+      title: "AWS Agentic AI Consulting Services",
       description:
-        "Aligned with DevOps Institute practices for our DevOps and Platform Engineering services.",
+        "AWS AI Services Competency designation for Agentic AI Consulting Services.",
+    },
+    {
+      title: "Amazon RDS Delivery",
+      description:
+        "AWS Service Delivery designation for Amazon RDS, recognising validated experience delivering RDS workloads.",
+    },
+    {
+      title: "AWS WAF Delivery",
+      description:
+        "AWS Service Delivery designation for AWS WAF, recognising validated experience implementing web application firewall protection.",
+    },
+    {
+      title: "Amazon CloudFront Delivery",
+      description:
+        "AWS Service Delivery designation for Amazon CloudFront, included in CloudHight’s Advanced Tier Services partner lockup.",
     },
     {
       title: "Business All-Star 2026 Accredited",

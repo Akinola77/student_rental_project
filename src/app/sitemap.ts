@@ -18,6 +18,7 @@ const staticPaths = [
   "/services/application-services",
   "/services/cloud-ai-skills-enablement",
   "/services/ai-automation",
+  "/agentic-ai-consulting-services",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: (path === "/blogs" ? "weekly" : "monthly") as
         | "weekly"
         | "monthly",
-      priority: path === "/" ? 1 : path === "/blogs" ? 0.8 : 0.6,
+      priority: path === "/" ? 1 : path === "/blogs" || path === "/agentic-ai-consulting-services" ? 0.8 : 0.6,
     })),
     ...published.map((article) => ({
       url: absoluteUrl(`/blogs/${article.slug}`),
