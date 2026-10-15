@@ -145,7 +145,7 @@ export const heroSlides = [
     buttonText: "Contact Us",
     href: "mailto:info@cloudhight.com",
     secondary: { label: "Explore Services", href: "/overview" },
-    image: "/photos/aws-badge-partner-advanced-tier-services.png",
+    image: "/photos/aws-badge-partner-advanced-tier-services-hero.webp",
     imageAlt: "AWS Partner — Advanced Tier Services",
   },
   {
