@@ -147,7 +147,6 @@ export const heroSlides = [
     secondary: { label: "Explore Services", href: "/overview" },
     image: "/photos/aws-badge-partner-advanced-tier-services.png",
     imageAlt: "AWS Partner — Advanced Tier Services",
-    imageKind: "badge" as const,
   },
   {
     title: "Award-Winning Cloud & AI Expertise",

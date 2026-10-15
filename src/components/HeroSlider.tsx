@@ -77,23 +77,13 @@ export default function HeroSlider() {
               transition={{ duration: 0.5 }}
               className="flex justify-center items-center mt-6 lg:mt-0"
             >
-              {slide.imageKind === "badge" ? (
+              <div className="group relative w-full max-w-md mx-auto h-[220px] md:h-[350px] rounded-lg overflow-hidden">
                 <img
                   alt={slide.imageAlt}
                   src={slide.image}
-                  width={120}
-                  height={120}
-                  className="h-[120px] w-[120px] object-contain drop-shadow-2xl"
+                  className="rounded-lg shadow-2xl object-contain absolute inset-0 h-full w-full"
                 />
-              ) : (
-                <div className="group relative w-full max-w-md mx-auto h-[220px] md:h-[350px] rounded-lg overflow-hidden">
-                  <img
-                    alt={slide.imageAlt}
-                    src={slide.image}
-                    className="rounded-lg shadow-2xl object-contain absolute inset-0 h-full w-full"
-                  />
-                </div>
-              )}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
