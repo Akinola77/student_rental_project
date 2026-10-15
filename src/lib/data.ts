@@ -254,13 +254,13 @@ export const alliances = [
   },
   {
     name: "AWS Partner — AI Services Competency — Agentic AI Consulting Services",
-    logo: "/photos/aws-partner-ai-services-competency-agentic-ai.png",
+    logo: "/photos/aws-partner-ai-services-competency-agentic-ai-on-light.png",
     link: "https://aws.amazon.com/partners/",
     layout: "lockup" as const,
   },
   {
     name: "AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery",
-    logo: "/photos/aws-partner-advanced-tier-specializations.png",
+    logo: "/photos/aws-partner-advanced-tier-specializations-on-light.png",
     link: "https://aws.amazon.com/partners/",
     layout: "lockup" as const,
   },

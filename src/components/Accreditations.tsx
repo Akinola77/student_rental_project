@@ -51,7 +51,7 @@ export default function Accreditations() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={a.name}
-              className="inline-flex max-w-full bg-black p-2 focus:outline-none focus:ring-2 focus:ring-ocu-blue/30"
+              className="inline-flex max-w-full p-2 focus:outline-none focus:ring-2 focus:ring-ocu-blue/30"
             >
               <img
                 alt={a.name}

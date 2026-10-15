@@ -3,18 +3,24 @@ import Image from "next/image";
 export function AwsAgenticBadge({
   size = "lg",
   priority = false,
+  variant = "dark",
 }: {
   size?: "lg" | "md" | "sm";
   priority?: boolean;
+  variant?: "light" | "dark";
 }) {
   const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
+  const onLight = variant === "light";
   return (
-    // Official lockup: white competency mark + white wordmark. The right-hand
-    // type is white, so this asset must sit on a black field. The PNG itself
-    // is not recoloured, cropped or redrawn.
-    <span className="inline-flex max-w-full bg-black">
+    // Official lockups, unmodified: dark type on light pages, white type on a
+    // black field where the surrounding section is dark.
+    <span className={`inline-flex max-w-full ${onLight ? "" : "bg-black"}`}>
       <Image
-        src="/photos/aws-partner-ai-services-competency-agentic-ai.png"
+        src={
+          onLight
+            ? "/photos/aws-partner-ai-services-competency-agentic-ai-on-light.png"
+            : "/photos/aws-partner-ai-services-competency-agentic-ai.png"
+        }
         alt="AWS Partner — AI Services Competency — Agentic AI Consulting Services"
         width={274}
         height={120}
@@ -43,13 +49,20 @@ export function AwsAiCompetencyBadge({ size = 96 }: { size?: number }) {
 
 export function AwsSpecializationsBadge({
   width = 314,
+  variant = "dark",
 }: {
   width?: number;
+  variant?: "light" | "dark";
 }) {
+  const onLight = variant === "light";
   return (
-    <span className="inline-flex max-w-full bg-black">
+    <span className={`inline-flex max-w-full ${onLight ? "" : "bg-black"}`}>
       <Image
-        src="/photos/aws-partner-advanced-tier-specializations.png"
+        src={
+          onLight
+            ? "/photos/aws-partner-advanced-tier-specializations-on-light.png"
+            : "/photos/aws-partner-advanced-tier-specializations.png"
+        }
         alt="AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery"
         width={314}
         height={120}
@@ -110,10 +123,10 @@ export function CredentialRow({
     <div className={className}>
       {items.map((id) => {
         if (id === "agentic") {
-          return <AwsAgenticBadge key={id} size="md" />;
+          return <AwsAgenticBadge key={id} size="md" variant="light" />;
         }
         if (id === "specializations") {
-          return <AwsSpecializationsBadge key={id} width={280} />;
+          return <AwsSpecializationsBadge key={id} width={280} variant="light" />;
         }
         const badge = compactBadges[id];
         return (
