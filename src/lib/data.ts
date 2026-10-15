@@ -530,18 +530,6 @@ export const caseStudies = [
 
 export const events = [
   {
-    slug: "devops-outsourcing-roundtable",
-    title: "DevOps Outsourcing Roundtable",
-    month: "Nov",
-    day: "20",
-    date: "2026-11-20",
-    location: "Virtual",
-    attendees: "60+ attendees",
-    status: "upcoming" as const,
-    summary:
-      "A roundtable discussion on when and how to outsource the DevOps function without losing control.",
-  },
-  {
     slug: "beyond-aiops-agentic-ai-aws",
     title:
       "Beyond AIOps: Building Autonomous IT Operations with Agentic AI on AWS",

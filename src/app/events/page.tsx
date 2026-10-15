@@ -6,7 +6,7 @@ import { events } from "@/lib/data";
 import { PageHero } from "@/components/Heros";
 
 export default function EventsPage() {
-  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all");
+  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("upcoming");
   const [asc, setAsc] = useState(true);
 
   const list = useMemo(() => {
