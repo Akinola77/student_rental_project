@@ -1,4 +1,8 @@
 import { alliances } from "@/lib/data";
+import {
+  AwsAgenticBadge,
+  AwsSpecializationsBadge,
+} from "@/components/agentic-ai/AwsBadges";
 
 export default function Accreditations() {
   const squares = alliances.filter((a) => a.layout !== "lockup");
@@ -53,11 +57,11 @@ export default function Accreditations() {
               aria-label={a.name}
               className="inline-flex max-w-full p-2 focus:outline-none focus:ring-2 focus:ring-ocu-blue/30"
             >
-              <img
-                alt={a.name}
-                src={a.logo}
-                className="h-20 md:h-24 w-auto max-w-full object-contain"
-              />
+              {a.logo.includes("agentic-ai") ? (
+                <AwsAgenticBadge size="md" />
+              ) : (
+                <AwsSpecializationsBadge width={280} />
+              )}
             </a>
           ))}
         </div>

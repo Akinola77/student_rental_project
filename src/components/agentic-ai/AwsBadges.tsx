@@ -1,35 +1,62 @@
 import Image from "next/image";
 
-export function AwsAgenticBadge({
-  size = "lg",
+function AwsWordmarkLockup({
+  src,
+  alt,
+  nativeWidth,
+  nativeHeight,
+  width,
   priority = false,
-  variant = "dark",
 }: {
-  size?: "lg" | "md" | "sm";
+  src: string;
+  alt: string;
+  nativeWidth: number;
+  nativeHeight: number;
+  width: number;
   priority?: boolean;
-  variant?: "light" | "dark";
 }) {
-  const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
-  const onLight = variant === "light";
+  // Official lockups are unmodified white-on-transparent wordmarks beside a
+  // 120px compact mark. Black sits only under the wordmark so the hexagon is
+  // not boxed in a rectangle.
+  const wordmarkStart = `${(120 / nativeWidth) * 100}%`;
   return (
-    // Official lockups, unmodified: dark type on light pages, white type on a
-    // black field where the surrounding section is dark.
-    <span className={`inline-flex max-w-full ${onLight ? "" : "bg-black"}`}>
+    <span className="relative inline-flex max-w-full">
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 bg-black"
+        style={{ left: wordmarkStart }}
+      />
       <Image
-        src={
-          onLight
-            ? "/photos/aws-partner-ai-services-competency-agentic-ai-on-light.png"
-            : "/photos/aws-partner-ai-services-competency-agentic-ai.png"
-        }
-        alt="AWS Partner — AI Services Competency — Agentic AI Consulting Services"
-        width={274}
-        height={120}
+        src={src}
+        alt={alt}
+        width={nativeWidth}
+        height={nativeHeight}
         priority={priority}
         unoptimized
-        className="h-auto object-contain"
+        className="relative z-10 h-auto object-contain"
         style={{ width, maxWidth: "100%" }}
       />
     </span>
+  );
+}
+
+export function AwsAgenticBadge({
+  size = "lg",
+  priority = false,
+}: {
+  size?: "lg" | "md" | "sm";
+  priority?: boolean;
+}) {
+  const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
+  return (
+    <AwsWordmarkLockup
+      src="/photos/aws-partner-ai-services-competency-agentic-ai.png"
+      alt="AWS Partner — AI Services Competency — Agentic AI Consulting Services"
+      nativeWidth={274}
+      nativeHeight={120}
+      width={width}
+      priority={priority}
+    />
   );
 }
 
@@ -49,28 +76,17 @@ export function AwsAiCompetencyBadge({ size = 96 }: { size?: number }) {
 
 export function AwsSpecializationsBadge({
   width = 314,
-  variant = "dark",
 }: {
   width?: number;
-  variant?: "light" | "dark";
 }) {
-  const onLight = variant === "light";
   return (
-    <span className={`inline-flex max-w-full ${onLight ? "" : "bg-black"}`}>
-      <Image
-        src={
-          onLight
-            ? "/photos/aws-partner-advanced-tier-specializations-on-light.png"
-            : "/photos/aws-partner-advanced-tier-specializations.png"
-        }
-        alt="AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery"
-        width={314}
-        height={120}
-        unoptimized
-        className="h-auto object-contain"
-        style={{ width, maxWidth: "100%" }}
-      />
-    </span>
+    <AwsWordmarkLockup
+      src="/photos/aws-partner-advanced-tier-specializations.png"
+      alt="AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery"
+      nativeWidth={314}
+      nativeHeight={120}
+      width={width}
+    />
   );
 }
 
@@ -123,10 +139,10 @@ export function CredentialRow({
     <div className={className}>
       {items.map((id) => {
         if (id === "agentic") {
-          return <AwsAgenticBadge key={id} size="md" variant="light" />;
+          return <AwsAgenticBadge key={id} size="md" />;
         }
         if (id === "specializations") {
-          return <AwsSpecializationsBadge key={id} width={280} variant="light" />;
+          return <AwsSpecializationsBadge key={id} width={280} />;
         }
         const badge = compactBadges[id];
         return (
