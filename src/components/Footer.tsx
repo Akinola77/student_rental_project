@@ -28,17 +28,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            <Link href="/" className="mb-4 inline-flex">
               <img
                 src="/photos/cloudhightlogo.png"
-                alt="CloudHight Consulting Logo"
-                className="h-10 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)", mixBlendMode: "normal" }}
+                alt="CloudHight Consulting"
+                className="h-16 w-auto object-contain"
               />
-              <span className="text-xl font-bold tracking-tight text-white">
-                {site.name}
-              </span>
-            </div>
+            </Link>
             <p className="text-sm text-gray-300 mb-6 max-w-md">{site.tagline}</p>
             <div className="flex space-x-4">
               <a

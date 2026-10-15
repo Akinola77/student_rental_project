@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { nav, site } from "@/lib/data";
+import { nav } from "@/lib/data";
 
 type SimpleItem = { label: string; path: string; public?: boolean };
 type AiItem = { label: string; description: string; path: string };
@@ -327,19 +327,12 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center space-x-3 group py-2 shrink-0">
+          <Link href="/" className="flex items-center py-1 shrink-0 group">
             <img
               src="/photos/cloudhightlogo.png"
-              alt="CloudHight Consulting Logo"
-              className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-white rounded-md p-0.5"
+              alt="CloudHight Consulting"
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            <span
-              className={`text-lg xl:text-xl font-bold tracking-tight transition-colors duration-300 ${
-                inverted ? "text-white" : "text-ocu-blue"
-              }`}
-            >
-              {site.name}
-            </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-4 xl:gap-6">
