@@ -32,7 +32,10 @@ import JsonLd from "@/components/JsonLd";
 import { InsightCard } from "@/components/insights/InsightCard";
 import AgenticHeroVisual from "@/components/agentic-ai/HeroVisual";
 import AgenticIndustries from "@/components/agentic-ai/Industries";
-import { AwsAgenticBadge } from "@/components/agentic-ai/AwsBadges";
+import {
+  AwsAgenticBadge,
+  AwsAiCompetencyBadge,
+} from "@/components/agentic-ai/AwsBadges";
 import {
   getInsightsByTags,
   insights,
@@ -1035,7 +1038,10 @@ export default function AgenticAiConsultingPage() {
               eyebrow="Why CloudHight?"
               title="AI Expertise Meets Cloud Engineering"
             />
-            <div className="lg:mb-12">
+            <div className="flex flex-wrap items-center gap-4 lg:mb-12">
+              <span className="inline-flex bg-white rounded-xl p-2">
+                <AwsAiCompetencyBadge size={88} />
+              </span>
               <AwsAgenticBadge size="md" />
             </div>
           </div>

@@ -26,6 +26,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { PageHero } from "@/components/Heros";
+import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 const consultHref =
   "/contact?subject=" + encodeURIComponent("Book a Cloud Consultation");
@@ -388,13 +389,24 @@ export default function CloudImplementationPage() {
           />
           <div className="grid md:grid-cols-3 gap-6">
             <article className="md:col-span-1 bg-white rounded-2xl p-8 border border-ocu-cyan/20 shadow-md ring-1 ring-ocu-cyan/10">
-              <Image
-                src="/photos/aws-badge-partner-advanced-tier-services.png"
-                alt="AWS Partner — Advanced Tier Services"
-                width={180}
-                height={180}
-                className="h-24 w-auto object-contain mb-5"
-              />
+              <div className="flex items-center gap-4 mb-5">
+                <Image
+                  src="/photos/aws-badge-partner-advanced-tier-services.png"
+                  alt="AWS Partner — Advanced Tier Services"
+                  width={180}
+                  height={180}
+                  unoptimized
+                  className="h-24 w-auto object-contain"
+                />
+                <Image
+                  src="/photos/aws-partner-amazon-rds-delivery.png"
+                  alt="AWS Partner — Amazon RDS Delivery"
+                  width={120}
+                  height={120}
+                  unoptimized
+                  className="h-20 w-auto object-contain"
+                />
+              </div>
               <h3 className="text-xl font-bold text-ocu-blue mb-2">
                 Amazon Web Services (AWS)
               </h3>
@@ -441,29 +453,7 @@ export default function CloudImplementationPage() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Why CloudHight?" />
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
-            <Image
-              src="/photos/aws-badge-partner-advanced-tier-services.png"
-              alt="AWS Partner — Advanced Tier Services"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-            <Image
-              src="/photos/business-allstar-2026.png"
-              alt="Business All-Star 2026 Accredited"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-            <Image
-              src="/photos/badge-devops-institute.png"
-              alt="DevOps Institute"
-              width={180}
-              height={180}
-              className="h-24 w-auto object-contain"
-            />
-          </div>
+          <CredentialRow items={["advanced", "rds", "allstar"]} />
           <ul className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {whyPoints.map((point) => (
               <li

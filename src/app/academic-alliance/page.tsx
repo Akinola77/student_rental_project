@@ -3,6 +3,7 @@ import Link from "next/link";
 import { academyDisclaimer } from "@/lib/data";
 import { GradientHero, SectionHeading } from "@/components/Heros";
 import InquiryForm from "@/components/InquiryForm";
+import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 export const metadata: Metadata = { title: "Partner Program" };
 
@@ -68,10 +69,14 @@ export default function PartnerProgramPage() {
         <div className="max-w-5xl mx-auto text-center">
           <SectionHeading title="Why Partner With CloudHight?" />
           <p className="text-gray-600 mb-8">
-            CloudHight is a trusted AWS Select Tier and Advanced Tier Partner, and
+            CloudHight is a trusted AWS Advanced Tier Services Partner, and
             winner of the Cloud Consulting Company of the Year 2026 award by the
             All-Ireland Business Foundation.
           </p>
+          <CredentialRow
+            items={["advanced", "ai", "rds", "waf", "specializations"]}
+            className="flex flex-wrap justify-center items-center gap-6 mb-8"
+          />
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {[
               "AWS-funded activities",

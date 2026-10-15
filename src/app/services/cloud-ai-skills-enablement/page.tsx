@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -26,6 +25,10 @@ import {
   Wrench,
 } from "lucide-react";
 import { PageHero } from "@/components/Heros";
+import {
+  AwsAiCompetencyBadge,
+  CredentialRow,
+} from "@/components/agentic-ai/AwsBadges";
 
 const discussHref =
   "/contact?subject=" +
@@ -924,13 +927,9 @@ export default function CloudAiSkillsEnablementPage() {
             </p>
           </div>
           <div className="flex justify-center mb-10">
-            <Image
-              src="/photos/aws-ai-services-competency.png"
-              alt="AWS Partner — AI Services Competency"
-              width={220}
-              height={120}
-              className="h-24 w-auto object-contain bg-white rounded-xl p-3"
-            />
+            <span className="inline-flex bg-white rounded-xl p-3">
+              <AwsAiCompetencyBadge size={96} />
+            </span>
           </div>
           <div className="flex justify-center mb-10">
             <Pills items={aiAreas} onDark />
@@ -1111,29 +1110,7 @@ export default function CloudAiSkillsEnablementPage() {
               </article>
             ))}
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
-            <Image
-              src="/photos/aws-badge-partner-advanced-tier-services.png"
-              alt="AWS Partner — Advanced Tier Services"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-            <Image
-              src="/photos/aws-ai-services-competency.png"
-              alt="AWS Partner — AI Services Competency"
-              width={220}
-              height={120}
-              className="h-20 w-auto object-contain bg-white rounded-xl p-3"
-            />
-            <Image
-              src="/photos/business-allstar-2026.png"
-              alt="Business All-Star 2026 Accredited"
-              width={200}
-              height={200}
-              className="h-28 w-auto object-contain"
-            />
-          </div>
+          <CredentialRow items={["advanced", "ai", "allstar"]} />
           <ul className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {whyPoints.map((point) => (
               <li

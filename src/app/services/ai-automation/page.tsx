@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -36,6 +35,7 @@ import {
   Wrench,
 } from "lucide-react";
 import HashScroll from "@/components/HashScroll";
+import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 const discussHref =
   "/contact?subject=" + encodeURIComponent("Discuss Your AI Initiative");
@@ -961,22 +961,7 @@ export default function AiAutomationPage() {
             title="AI Expertise Validated by AWS"
             subtitle="Building enterprise AI requires more than access to a foundation model. Organisations need secure architecture, cloud engineering, application integration, governance and operational capability. CloudHight combines AWS expertise with AI engineering to help organisations design and implement production-ready AI solutions."
           />
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
-            <Image
-              src="/photos/aws-badge-partner-advanced-tier-services.png"
-              alt="AWS Partner — Advanced Tier Services"
-              width={180}
-              height={180}
-              className="h-24 w-auto object-contain"
-            />
-            <Image
-              src="/photos/aws-ai-services-competency.png"
-              alt="AWS Partner — AI Services Competency"
-              width={180}
-              height={180}
-              className="h-24 w-auto object-contain"
-            />
-          </div>
+          <CredentialRow items={["advanced", "ai", "agentic"]} />
           <p className="text-center text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed">
             AWS AI Competency recognises validated AWS Partners with
             demonstrated technical expertise and customer experience in
@@ -1432,29 +1417,10 @@ export default function AiAutomationPage() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="AI Engineering Backed by Cloud & Operational Expertise" />
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-10">
-            <Image
-              src="/photos/aws-badge-partner-advanced-tier-services.png"
-              alt="AWS Partner — Advanced Tier Services"
-              width={160}
-              height={160}
-              className="h-20 w-auto object-contain"
-            />
-            <Image
-              src="/photos/aws-ai-services-competency.png"
-              alt="AWS Partner — AI Services Competency"
-              width={160}
-              height={160}
-              className="h-20 w-auto object-contain"
-            />
-            <Image
-              src="/photos/business-allstar-2026.png"
-              alt="Business All-Star 2026 Accredited"
-              width={160}
-              height={160}
-              className="h-20 w-auto object-contain"
-            />
-          </div>
+          <CredentialRow
+            items={["advanced", "ai", "allstar"]}
+            className="flex flex-wrap justify-center items-center gap-8 mb-10"
+          />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyPoints.map((item) => (
               <article

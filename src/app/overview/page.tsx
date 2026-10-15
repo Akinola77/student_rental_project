@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { overview } from "@/lib/data";
 import { PageHero } from "@/components/Heros";
+import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 export const metadata: Metadata = { title: "Overview" };
 
@@ -146,6 +147,17 @@ export default function OverviewPage() {
             Certifications & Partnerships
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-ocu-blue to-ocu-cyan mx-auto rounded-full mb-12" />
+          <CredentialRow
+            items={[
+              "advanced",
+              "ai",
+              "rds",
+              "waf",
+              "agentic",
+              "specializations",
+              "allstar",
+            ]}
+          />
           <div className="grid md:grid-cols-2 gap-6">
             {overview.certifications.map((c) => (
               <div
