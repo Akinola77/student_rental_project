@@ -1177,7 +1177,7 @@ export default function AgenticAiConsultingPage() {
             </Link>
           </div>
           <div className="mt-10 flex justify-center">
-            <AwsAgenticBadge size="md" />
+            <AwsAgenticBadge size="md" wordmarkField={false} />
           </div>
           <p className="mt-6 text-sm font-semibold text-cyan-200">
             AWS Advanced Tier Services Partner
