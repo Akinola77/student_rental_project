@@ -7,6 +7,7 @@ function AwsWordmarkLockup({
   nativeHeight,
   width,
   priority = false,
+  wordmarkField = true,
 }: {
   src: string;
   alt: string;
@@ -14,18 +15,20 @@ function AwsWordmarkLockup({
   nativeHeight: number;
   width: number;
   priority?: boolean;
+  wordmarkField?: boolean;
 }) {
   // Official lockups are unmodified white-on-transparent wordmarks beside a
-  // 120px compact mark. Black sits only under the wordmark so the hexagon is
-  // not boxed in a rectangle.
+  // 120px compact mark. On light pages, black sits only under the wordmark.
   const wordmarkStart = `${(120 / nativeWidth) * 100}%`;
   return (
     <span className="relative inline-flex max-w-full">
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 bg-black"
-        style={{ left: wordmarkStart }}
-      />
+      {wordmarkField ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 bg-black"
+          style={{ left: wordmarkStart }}
+        />
+      ) : null}
       <Image
         src={src}
         alt={alt}
@@ -43,9 +46,11 @@ function AwsWordmarkLockup({
 export function AwsAgenticBadge({
   size = "lg",
   priority = false,
+  wordmarkField = true,
 }: {
   size?: "lg" | "md" | "sm";
   priority?: boolean;
+  wordmarkField?: boolean;
 }) {
   const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
   return (
@@ -56,6 +61,7 @@ export function AwsAgenticBadge({
       nativeHeight={120}
       width={width}
       priority={priority}
+      wordmarkField={wordmarkField}
     />
   );
 }

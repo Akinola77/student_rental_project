@@ -242,7 +242,7 @@ export default function AiAutomation() {
               <span className="inline-flex bg-white rounded-lg p-2">
                 <AwsAiCompetencyBadge size={64} />
               </span>
-              <AwsAgenticBadge size="sm" />
+              <AwsAgenticBadge size="sm" wordmarkField={false} />
             </span>
           </div>
         </div>
