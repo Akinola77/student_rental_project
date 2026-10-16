@@ -1040,7 +1040,6 @@ export default function AgenticAiConsultingPage() {
               <span className="inline-flex bg-white rounded-xl p-2">
                 <AwsAiCompetencyBadge size={88} />
               </span>
-              <AwsAgenticBadge size="md" />
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
