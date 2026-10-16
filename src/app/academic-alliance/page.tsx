@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { academyDisclaimer } from "@/lib/data";
 import { GradientHero, SectionHeading } from "@/components/Heros";
 import InquiryForm from "@/components/InquiryForm";
 import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
@@ -148,7 +147,6 @@ export default function PartnerProgramPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8">
             <InquiryForm variant="partner" />
           </div>
-          <p className="text-xs text-gray-500 mt-8">{academyDisclaimer}</p>
         </div>
       </section>
     </div>
