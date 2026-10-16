@@ -143,8 +143,8 @@ export const heroSlides = [
     subtitle:
       "We help organisations modernise cloud infrastructure, accelerate software delivery, and unlock the power of AI. Combining deep AWS expertise with practical engineering, we deliver secure, scalable solutions that drive measurable business value.",
     buttonText: "Contact Us",
-    href: "mailto:info@cloudhight.com",
-    secondary: { label: "Explore Services", href: "/overview" },
+    href: "/contact",
+    secondary: { label: "Explore Services", href: "/#services" },
     image: "/photos/aws-badge-partner-advanced-tier-services-hero.webp",
     imageAlt: "AWS Partner — Advanced Tier Services",
   },

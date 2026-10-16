@@ -27,7 +27,6 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
-import HashScroll from "@/components/HashScroll";
 import JsonLd from "@/components/JsonLd";
 import { InsightCard } from "@/components/insights/InsightCard";
 import AgenticHeroVisual from "@/components/agentic-ai/HeroVisual";
@@ -603,7 +602,6 @@ export default function AgenticAiConsultingPage() {
 
   return (
     <div className="bg-white">
-      <HashScroll />
       <JsonLd
         data={{
           "@context": "https://schema.org",

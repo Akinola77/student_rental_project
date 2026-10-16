@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/Heros";
-import HashScroll from "@/components/HashScroll";
 import InquiryForm from "@/components/InquiryForm";
 import { site } from "@/lib/data";
 
@@ -87,7 +86,6 @@ export default async function JoinUsPage({
 
   return (
     <div className="bg-white">
-      <HashScroll />
       <PageHero
         title="Careers at CloudHight"
         subtitle="The specialist IT recruitment and consulting team accelerating journeys to the cloud."
