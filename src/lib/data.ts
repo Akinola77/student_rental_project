@@ -141,7 +141,7 @@ export const heroSlides = [
   {
     title: "Accelerate Your Journey To The Cloud",
     subtitle:
-      "From vision to adoption, we partner with customers using an empathetic approach to understand challenges and provide custom-built solutions.",
+      "We help organisations modernise cloud infrastructure, accelerate software delivery, and unlock the power of AI. Combining deep AWS expertise with practical engineering, we deliver secure, scalable solutions that drive measurable business value.",
     buttonText: "Contact Us",
     href: "mailto:info@cloudhight.com",
     secondary: { label: "Explore Services", href: "/overview" },
