@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { roleTitles } from "@/lib/careers";
 
 type Variant = "academy" | "partner" | "contact" | "event" | "job";
 
@@ -99,11 +100,7 @@ export default function InquiryForm({
             name="role"
             required
             defaultValue={defaultRole}
-            options={[
-              "DevOps Engineer",
-              "Cloud Solutions Architect",
-              "Other / speculative application",
-            ]}
+            options={[...roleTitles, "Other / speculative application"]}
           />
         </div>
         <label className="block text-sm font-medium text-gray-700">

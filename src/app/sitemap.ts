@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { openRoles } from "@/lib/careers";
 import { getPublishedInsights, insights } from "@/lib/insights";
 import { absoluteUrl } from "@/lib/site";
 
@@ -29,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         | "weekly"
         | "monthly",
       priority: path === "/" ? 1 : path === "/blogs" || path === "/agentic-ai-consulting-services" ? 0.8 : 0.6,
+    })),
+    ...openRoles.map((role) => ({
+      url: absoluteUrl(`/join-us/${role.slug}`),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
     ...published.map((article) => ({
       url: absoluteUrl(`/blogs/${article.slug}`),
