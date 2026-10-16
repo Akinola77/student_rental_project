@@ -34,7 +34,6 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
-import HashScroll from "@/components/HashScroll";
 import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
 
 const discussHref =
@@ -894,7 +893,6 @@ function AwsArchitecture() {
 export default function AiAutomationPage() {
   return (
     <div className="bg-white">
-      <HashScroll />
       <section className="relative overflow-hidden bg-[#070b1a] pt-32 pb-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,111,237,0.28),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(10,42,94,0.55),transparent_45%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -961,7 +959,7 @@ export default function AiAutomationPage() {
             title="AI Expertise Validated by AWS"
             subtitle="Building enterprise AI requires more than access to a foundation model. Organisations need secure architecture, cloud engineering, application integration, governance and operational capability. CloudHight combines AWS expertise with AI engineering to help organisations design and implement production-ready AI solutions."
           />
-          <CredentialRow items={["advanced", "ai", "agentic"]} />
+          <CredentialRow items={["advanced", "ai"]} />
           <p className="text-center text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed">
             AWS AI Competency recognises validated AWS Partners with
             demonstrated technical expertise and customer experience in

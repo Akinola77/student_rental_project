@@ -98,31 +98,12 @@ export default function Footer() {
             <p className="text-sm text-gray-300">
               © {new Date().getFullYear()} {site.name}. All rights reserved.
             </p>
-            <div className="text-center md:text-right">
-              <Link
-                href="/motivalogic-academy"
-                className="text-sm text-white/55 hover:text-white transition-colors"
-              >
-                MotivaLogic Academy
-              </Link>
-              <p className="text-xs text-white/35 mt-1">
-                Technology education & professional development
-              </p>
-            </div>
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/admin/login"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Content Admin
-              </Link>
-            </div>
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-white/60 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

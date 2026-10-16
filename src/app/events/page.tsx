@@ -6,7 +6,7 @@ import { events } from "@/lib/data";
 import { PageHero } from "@/components/Heros";
 
 export default function EventsPage() {
-  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all");
+  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("upcoming");
   const [asc, setAsc] = useState(true);
 
   const list = useMemo(() => {
@@ -71,22 +71,42 @@ export default function EventsPage() {
                 key={e.slug}
                 className="flex flex-col md:flex-row gap-6 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm"
               >
-                <div className="w-20 h-20 rounded-xl bg-ocu-blue text-white flex flex-col items-center justify-center shrink-0">
+                <div className="w-20 h-20 rounded-xl bg-ocu-blue text-white flex flex-col items-center justify-center shrink-0 px-1">
                   <span className="text-xs uppercase tracking-wider">{e.month}</span>
-                  <span className="text-2xl font-bold">{e.day}</span>
+                  <span
+                    className={`font-bold leading-tight ${
+                      e.day.length > 2 ? "text-lg" : "text-2xl"
+                    }`}
+                  >
+                    {e.day}
+                  </span>
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-ocu-blue">{e.title}</h3>
-                  <p className="text-sm text-gray-500 mt-1">
-                    {e.location} · {e.attendees}
-                  </p>
+                  {e.location || e.attendees || e.dateLabel || e.format ? (
+                    <p className="text-sm text-gray-500 mt-1">
+                      {[e.dateLabel, e.format, e.location, e.attendees]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
+                  ) : null}
                   <p className="text-gray-600 mt-3">{e.summary}</p>
-                  <Link
-                    href={`/events/${e.slug}`}
-                    className="inline-block mt-4 text-ocu-cyan font-semibold"
-                  >
-                    View Details
-                  </Link>
+                  <div className="mt-4 flex flex-wrap gap-4">
+                    <Link
+                      href={`/events/${e.slug}`}
+                      className="inline-block text-ocu-cyan font-semibold"
+                    >
+                      View Details
+                    </Link>
+                    {e.ctaHref ? (
+                      <Link
+                        href={e.ctaHref}
+                        className="inline-block text-ocu-blue font-semibold"
+                      >
+                        {e.ctaLabel ?? "Register Now"}
+                      </Link>
+                    ) : null}
+                  </div>
                 </div>
               </article>
             ))}

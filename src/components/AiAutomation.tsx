@@ -1,10 +1,7 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Bot, Brain, Eye, ShieldCheck } from "lucide-react";
-import {
-  AwsAgenticBadge,
-  AwsAiCompetencyBadge,
-} from "@/components/agentic-ai/AwsBadges";
+import { AwsAgenticBadge } from "@/components/agentic-ai/AwsBadges";
 
 const discussHref =
   "/contact?subject=" + encodeURIComponent("Discuss Your AI Initiative");
@@ -238,12 +235,7 @@ export default function AiAutomation() {
               Discuss Your AI Initiative
               <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
-            <span className="inline-flex items-center gap-3">
-              <span className="inline-flex bg-white rounded-lg p-2">
-                <AwsAiCompetencyBadge size={64} />
-              </span>
-              <AwsAgenticBadge size="sm" />
-            </span>
+            <AwsAgenticBadge size="sm" wordmarkField={false} />
           </div>
         </div>
       </div>

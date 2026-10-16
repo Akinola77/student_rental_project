@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/Heros";
 import InquiryForm from "@/components/InquiryForm";
+import { openRoles, roleTitles } from "@/lib/careers";
+import { site } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Join Us" };
 
@@ -43,45 +46,18 @@ const benefits = [
   },
 ];
 
-const positions = [
-  {
-    title: "DevOps Engineer",
-    department: "Engineering",
-    location: "Dublin, Ireland",
-    type: "Full-time",
-    requirements: [
-      "Hands-on experience with AWS, Azure or GCP in production environments",
-      "CI/CD pipeline design using tools such as Jenkins, Terraform and Docker",
-      "Comfortable working in a 24/7 managed-service rotation",
-      "Strong scripting ability (Python or Bash)",
-    ],
-  },
-  {
-    title: "Cloud Solutions Architect",
-    department: "Consulting",
-    location: "Dublin, Ireland",
-    type: "Full-time",
-    requirements: [
-      "Proven experience designing multi-cloud architectures (AWS/Azure/GCP)",
-      "Client-facing experience scoping and leading migration projects",
-      "Relevant AWS or Azure architect certification preferred",
-      "Excellent stakeholder communication skills",
-    ],
-  },
-  {
-    title: "Site Reliability Engineer",
-    department: "Managed Services",
-    location: "Remote (Ireland/EU)",
-    type: "Full-time",
-    requirements: [
-      "Experience supporting production systems under an on-call rotation",
-      "Strong observability/monitoring background (CloudWatch, Grafana, etc.)",
-      "Comfortable automating incident response and remediation",
-    ],
-  },
-];
+export default async function JoinUsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ role?: string }>;
+}) {
+  const { role } = await searchParams;
+  const defaultRole =
+    typeof role === "string" &&
+    roleTitles.includes(role.trim())
+      ? role.trim()
+      : undefined;
 
-export default function JoinUsPage() {
   return (
     <div className="bg-white">
       <PageHero
@@ -122,7 +98,7 @@ export default function JoinUsPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-ocu-bg">
+      <section id="open-roles" className="py-20 px-6 bg-ocu-bg scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gradient mb-3">Open Roles</h2>
@@ -131,45 +107,60 @@ export default function JoinUsPage() {
             </p>
           </div>
           <div className="space-y-6">
-            {positions.map((p) => (
+            {openRoles.map((role) => (
               <article
-                key={p.title}
+                key={role.slug}
                 className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm"
               >
                 <div className="flex flex-wrap gap-3 items-center mb-3">
-                  <h3 className="text-xl font-bold text-ocu-blue">{p.title}</h3>
+                  <h3 className="text-xl font-bold text-ocu-blue">{role.title}</h3>
                   <span className="text-xs bg-ocu-cyan/10 text-ocu-cyan px-3 py-1 rounded-full">
-                    {p.type}
+                    {role.type}
                   </span>
                 </div>
                 <p className="text-sm text-gray-500 mb-4">
-                  {p.department} · {p.location}
+                  {role.department} · {role.location}
                 </p>
-                <ul className="list-disc pl-5 text-sm text-gray-600 space-y-1">
-                  {p.requirements.map((r) => (
-                    <li key={r}>{r}</li>
-                  ))}
-                </ul>
+                <p className="text-gray-600 leading-relaxed max-w-3xl">
+                  {role.overview}
+                </p>
+                <Link
+                  href={`/join-us/${role.slug}`}
+                  className="inline-flex mt-5 px-5 py-2.5 bg-ocu-blue text-white rounded-lg text-sm font-semibold min-h-[44px] items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocu-cyan/40"
+                >
+                  Apply now
+                </Link>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6">
+      <section id="apply" className="py-20 px-6 scroll-mt-28">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gradient mb-3">
-              Don&apos;t See the Right Role?
+              Apply for a Role
             </h2>
-            <p className="text-gray-600">
-              We&apos;re always looking for talented cloud, DevOps and security
-              professionals. Send us your CV and we&apos;ll keep you in mind for
-              future opportunities.
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Open a role above to read the full description and apply, or use
+              this form for a speculative application. Attach your CV and a short cover note.
+              You can also email{" "}
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent("Job application")}`}
+                className="text-ocu-cyan font-semibold underline decoration-2 underline-offset-4"
+              >
+                {site.email}
+              </a>{" "}
+              with the role in the subject line.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
-            <InquiryForm variant="job" />
+            <InquiryForm
+              key={defaultRole ?? "open"}
+              variant="job"
+              defaultRole={defaultRole}
+            />
           </div>
         </div>
       </section>

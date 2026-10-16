@@ -27,7 +27,6 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
-import HashScroll from "@/components/HashScroll";
 import JsonLd from "@/components/JsonLd";
 import { InsightCard } from "@/components/insights/InsightCard";
 import AgenticHeroVisual from "@/components/agentic-ai/HeroVisual";
@@ -603,7 +602,6 @@ export default function AgenticAiConsultingPage() {
 
   return (
     <div className="bg-white">
-      <HashScroll />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -1033,17 +1031,16 @@ export default function AgenticAiConsultingPage() {
 
       <section className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <SectionTitle
-              eyebrow="Why CloudHight?"
-              title="AI Expertise Meets Cloud Engineering"
-            />
-            <div className="flex flex-wrap items-center gap-4 lg:mb-12">
-              <span className="inline-flex bg-white rounded-xl p-2">
-                <AwsAiCompetencyBadge size={88} />
-              </span>
-              <AwsAgenticBadge size="md" />
+          <div className="mb-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <div className="min-w-0">
+              <SectionEyebrow>Why CloudHight?</SectionEyebrow>
+              <h2 className="text-3xl md:text-4xl font-bold text-gradient">
+                AI Expertise Meets Cloud Engineering
+              </h2>
             </div>
+            <span className="inline-flex shrink-0">
+              <AwsAiCompetencyBadge size={88} />
+            </span>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {differentiators.map((item) => (
@@ -1179,7 +1176,7 @@ export default function AgenticAiConsultingPage() {
             </Link>
           </div>
           <div className="mt-10 flex justify-center">
-            <AwsAgenticBadge size="md" />
+            <AwsAgenticBadge size="md" wordmarkField={false} />
           </div>
           <p className="mt-6 text-sm font-semibold text-cyan-200">
             AWS Advanced Tier Services Partner

@@ -1,29 +1,68 @@
 import Image from "next/image";
 
-export function AwsAgenticBadge({
-  size = "lg",
+function AwsWordmarkLockup({
+  src,
+  alt,
+  nativeWidth,
+  nativeHeight,
+  width,
   priority = false,
+  wordmarkField = true,
 }: {
-  size?: "lg" | "md" | "sm";
+  src: string;
+  alt: string;
+  nativeWidth: number;
+  nativeHeight: number;
+  width: number;
   priority?: boolean;
+  wordmarkField?: boolean;
 }) {
-  const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
+  // Official lockups are unmodified white-on-transparent wordmarks beside a
+  // 120px compact mark. On light pages, black sits only under the wordmark.
+  const wordmarkStart = `${(120 / nativeWidth) * 100}%`;
   return (
-    // Official lockup: white competency mark + white wordmark. The right-hand
-    // type is white, so this asset must sit on a black field. The PNG itself
-    // is not recoloured, cropped or redrawn.
-    <span className="inline-flex max-w-full bg-black">
+    <span className="relative inline-flex max-w-full">
+      {wordmarkField ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 bg-black"
+          style={{ left: wordmarkStart }}
+        />
+      ) : null}
       <Image
-        src="/photos/aws-partner-ai-services-competency-agentic-ai.png"
-        alt="AWS Partner — AI Services Competency — Agentic AI Consulting Services"
-        width={274}
-        height={120}
+        src={src}
+        alt={alt}
+        width={nativeWidth}
+        height={nativeHeight}
         priority={priority}
         unoptimized
-        className="h-auto object-contain"
+        className="relative z-10 h-auto object-contain"
         style={{ width, maxWidth: "100%" }}
       />
     </span>
+  );
+}
+
+export function AwsAgenticBadge({
+  size = "lg",
+  priority = false,
+  wordmarkField = true,
+}: {
+  size?: "lg" | "md" | "sm";
+  priority?: boolean;
+  wordmarkField?: boolean;
+}) {
+  const width = size === "lg" ? 274 : size === "md" ? 230 : 200;
+  return (
+    <AwsWordmarkLockup
+      src="/photos/aws-partner-ai-services-competency-agentic-ai.png"
+      alt="AWS Partner — AI Services Competency — Agentic AI Consulting Services"
+      nativeWidth={274}
+      nativeHeight={120}
+      width={width}
+      priority={priority}
+      wordmarkField={wordmarkField}
+    />
   );
 }
 
@@ -47,17 +86,13 @@ export function AwsSpecializationsBadge({
   width?: number;
 }) {
   return (
-    <span className="inline-flex max-w-full bg-black">
-      <Image
-        src="/photos/aws-partner-advanced-tier-specializations.png"
-        alt="AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery"
-        width={314}
-        height={120}
-        unoptimized
-        className="h-auto object-contain"
-        style={{ width, maxWidth: "100%" }}
-      />
-    </span>
+    <AwsWordmarkLockup
+      src="/photos/aws-partner-advanced-tier-specializations.png"
+      alt="AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery"
+      nativeWidth={314}
+      nativeHeight={120}
+      width={width}
+    />
   );
 }
 
@@ -83,6 +118,12 @@ const compactBadges = {
   waf: {
     src: "/photos/aws-partner-aws-waf-delivery.png",
     alt: "AWS Partner — AWS WAF Delivery",
+    width: 120,
+    height: 120,
+  },
+  cloudfront: {
+    src: "/photos/aws-partner-amazon-cloudfront-delivery.png",
+    alt: "AWS Partner — Amazon CloudFront Delivery",
     width: 120,
     height: 120,
   },

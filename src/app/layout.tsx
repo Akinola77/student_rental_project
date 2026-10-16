@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ChatWidget from "@/components/ChatWidget";
+import HashScroll from "@/components/HashScroll";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const inter = Inter({
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-gradient-to-b from-[#ffffff] via-[#fafbfc] to-[#f8f9fa]">
         <Navbar />
+        <HashScroll />
         <main>{children}</main>
         <Footer />
         <CookieBanner />

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { academyDisclaimer } from "@/lib/data";
 import { GradientHero, SectionHeading } from "@/components/Heros";
 import InquiryForm from "@/components/InquiryForm";
 import { CredentialRow } from "@/components/agentic-ai/AwsBadges";
@@ -11,7 +10,7 @@ const benefits = [
   {
     title: "Financial Incentives",
     description:
-      "Up to €2,000 referral bonus for every successful deal closed, plus priority access to additional incentive programs backed by AWS.",
+      "Earn attractive referral commissions for successful business opportunities, with access to additional performance-based incentives and partner benefits.",
     cta: "Discuss a Referral",
   },
   {
@@ -74,7 +73,7 @@ export default function PartnerProgramPage() {
             All-Ireland Business Foundation.
           </p>
           <CredentialRow
-            items={["advanced", "ai", "rds", "waf", "specializations"]}
+            items={["advanced", "ai", "rds", "waf", "cloudfront"]}
             className="flex flex-wrap justify-center items-center gap-6 mb-8"
           />
           <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -148,7 +147,6 @@ export default function PartnerProgramPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8">
             <InquiryForm variant="partner" />
           </div>
-          <p className="text-xs text-gray-500 mt-8">{academyDisclaimer}</p>
         </div>
       </section>
     </div>

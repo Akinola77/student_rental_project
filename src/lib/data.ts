@@ -110,7 +110,8 @@ export const nav = {
   ],
   about: [
     { label: "About CloudHight", path: "/overview" },
-    { label: "Team", path: "/team" },
+    // Unpublished for launch. Re-enable when the team page is ready to show.
+    { label: "Team", path: "/team", public: false },
     { label: "Careers", path: "/join-us" },
     { label: "Partners", path: "/academic-alliance" },
   ],
@@ -140,11 +141,11 @@ export const heroSlides = [
   {
     title: "Accelerate Your Journey To The Cloud",
     subtitle:
-      "From vision to adoption, we partner with customers using an empathetic approach to understand challenges and provide custom-built solutions.",
+      "We help organisations modernise cloud infrastructure, accelerate software delivery, and unlock the power of AI. Combining deep AWS expertise with practical engineering, we deliver secure, scalable solutions that drive measurable business value.",
     buttonText: "Contact Us",
-    href: "mailto:info@cloudhight.com",
-    secondary: { label: "Explore Services", href: "/overview" },
-    image: "/photos/aws-badge-partner-advanced-tier-services.png",
+    href: "/contact",
+    secondary: { label: "Explore Services", href: "/#services" },
+    image: "/photos/aws-badge-partner-advanced-tier-services-hero.webp",
     imageAlt: "AWS Partner — Advanced Tier Services",
   },
   {
@@ -252,16 +253,10 @@ export const alliances = [
     layout: "square" as const,
   },
   {
-    name: "AWS Partner — AI Services Competency — Agentic AI Consulting Services",
-    logo: "/photos/aws-partner-ai-services-competency-agentic-ai.png",
+    name: "AWS Partner — Amazon CloudFront Delivery",
+    logo: "/photos/aws-partner-amazon-cloudfront-delivery.png",
     link: "https://aws.amazon.com/partners/",
-    layout: "lockup" as const,
-  },
-  {
-    name: "AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery",
-    logo: "/photos/aws-partner-advanced-tier-specializations.png",
-    link: "https://aws.amazon.com/partners/",
-    layout: "lockup" as const,
+    layout: "square" as const,
   },
 ];
 
@@ -279,15 +274,14 @@ export const overview = {
   heroTitle: "Overview",
   heroSubtitle: "Learn about who we are, what drives us, and where we're heading",
   whoWeAreTitle: "Who We Are",
-  whoWeAreText:
-    "As thought leaders with a track record of successful project execution, CloudHight Consulting is committed to fueling your innovation with an in-house team of consultants who bring deep industry expertise and deliver results fast. From vision to adoption, we partner with customers using an empathetic approach to understand their challenges and provide custom-built solutions.",
-  companyImage: "/photos/transformcloudjourney.jpg",
-  stats: [
-    { value: 30, suffix: "+", label: "Engineers and Developers" },
-    { value: 50, suffix: "+", label: "Happy & Satisfied Customers" },
-    { value: 270, suffix: "+", label: "Server Cloud Launched" },
-    { value: 25, suffix: "+", label: "Ongoing Client Support" },
+  whoWeAreHeadline: "Your Trusted Partner for Cloud Transformation and AI Innovation",
+  whoWeAreParagraphs: [
+    "CloudHight Consulting is an Ireland-based AWS Advanced Tier Services Partner specialising in cloud transformation, DevOps, platform engineering, managed cloud services and artificial intelligence.",
+    "With recognised expertise in Agentic AI, we help organisations modernise their technology, accelerate innovation and turn emerging technologies into secure, scalable, production-ready solutions.",
+    "From cloud strategy and migration to intelligent automation and AI-powered applications, we combine deep technical expertise with a business-first approach to deliver measurable outcomes.",
+    "Our mission is simple: to help organisations innovate faster, operate smarter and scale with confidence.",
   ],
+  companyImage: "/photos/who-we-are-cloud-platform.jpg",
   missionTitle: "Our Mission",
   missionText:
     "To simplify business transformation by applying thought leadership and innovation, guiding every client's journey to the cloud with minimal disruption and measurable outcomes.",
@@ -389,7 +383,7 @@ export const overview = {
     {
       title: "Amazon CloudFront Delivery",
       description:
-        "AWS Service Delivery designation for Amazon CloudFront, included in CloudHight’s Advanced Tier Services partner lockup.",
+        "AWS Service Delivery designation for Amazon CloudFront, recognising validated experience delivering content with CloudFront.",
     },
     {
       title: "Business All-Star 2026 Accredited",
@@ -530,16 +524,107 @@ export const caseStudies = [
 
 export const events = [
   {
-    slug: "devops-outsourcing-roundtable",
-    title: "DevOps Outsourcing Roundtable",
+    slug: "beyond-aiops-agentic-ai-aws",
+    title:
+      "Beyond AIOps: Building Autonomous IT Operations with Agentic AI on AWS",
+    subtitle:
+      "From Reactive Monitoring to Intelligent, Self-Healing Infrastructure",
     month: "Nov",
-    day: "20",
-    date: "2026-11-20",
-    location: "Virtual",
-    attendees: "60+ attendees",
+    day: "25",
+    date: "2026-11-25",
+    dateLabel: "Wednesday, 25 November 2026",
+    format: "Live Technical Demonstration & Expert Insights",
     status: "upcoming" as const,
     summary:
-      "A roundtable discussion on when and how to outsource the DevOps function without losing control.",
+      "An interactive session exploring Agentic AI-powered autonomous operations on AWS — from incident detection and investigation to human-in-the-loop approval and automated recovery.",
+    about: [
+      "What if your IT infrastructure could detect incidents, investigate their root causes, recommend corrective actions and automatically recover — with human oversight where it matters most?",
+      "Join CloudHight Consulting for an interactive session exploring the next evolution of IT operations: Agentic AI-powered autonomous operations on AWS.",
+      "Traditional IT monitoring helps organisations identify problems, but resolving incidents often requires significant manual investigation, coordination and intervention. As cloud environments become increasingly complex, IT teams need to move beyond reactive monitoring towards intelligent, automated and resilient operations.",
+      "In this session, we'll demonstrate how Agentic AI can transform IT operations by combining real-time observability, AI-driven incident investigation, intelligent decision-making and automated remediation.",
+      "Using AWS-native services, including Amazon Bedrock, Amazon CloudWatch, Amazon EventBridge, AWS Lambda and AWS Systems Manager, we'll showcase how AI agents can work alongside engineering teams to accelerate incident resolution, reduce operational overhead and improve service reliability.",
+    ],
+    experienceTitle: "Live Demo: From Incident Detection to Automated Recovery",
+    experienceIntro:
+      "Watch a realistic cloud application experience an operational incident and see how an AI-powered workflow responds:",
+    demoSteps: [
+      {
+        title: "Real-Time Incident Detection",
+        body: "Amazon CloudWatch identifies abnormal application behaviour and triggers an alert.",
+      },
+      {
+        title: "AI-Powered Investigation",
+        body: "An AI agent analyses telemetry, investigates potential causes and identifies likely remediation options.",
+      },
+      {
+        title: "Intelligent Recommendations",
+        body: "The agent proposes a corrective action, supported by relevant operational evidence.",
+      },
+      {
+        title: "Human-in-the-Loop Approval",
+        body: "An engineer reviews and approves the recommended action before execution.",
+      },
+      {
+        title: "Automated Remediation",
+        body: "AWS automation services execute the approved remediation workflow.",
+      },
+      {
+        title: "Recovery Verification",
+        body: "The system checks application health and confirms whether the remediation has successfully restored service.",
+      },
+    ],
+    experienceOutro:
+      "The demonstration will highlight how organisations can introduce greater autonomy into IT operations while maintaining appropriate security controls, governance and human oversight.",
+    takeaways: [
+      "How Agentic AI extends traditional AIOps beyond monitoring and anomaly detection.",
+      "How AI agents can support incident investigation, root-cause analysis and operational decision-making.",
+      "How AWS-native services can be integrated to build intelligent remediation workflows.",
+      "How human approval, access controls and auditability help organisations adopt autonomous operations responsibly.",
+      "Practical opportunities to reduce mean time to resolution (MTTR), improve operational efficiency and strengthen cloud resilience.",
+    ],
+    audience: [
+      "CTOs, CIOs and IT Directors",
+      "Heads of Cloud Infrastructure and IT Operations",
+      "DevOps and Platform Engineering Leaders",
+      "Site Reliability Engineers (SREs)",
+      "Cloud Architects and Security Professionals",
+      "Technology and Digital Transformation Leaders",
+    ],
+    whyAttend: [
+      "The future of IT operations is not just about knowing when something goes wrong — it's about enabling systems to intelligently investigate, respond and recover.",
+      "Whether your organisation is exploring AIOps, investing in cloud automation or evaluating practical applications of Agentic AI, this session will provide insights and a live demonstration of what is possible with AWS.",
+      "Join CloudHight Consulting on 25 November 2026 and discover how to take the next step towards intelligent, resilient and increasingly autonomous IT operations.",
+    ],
+    ctaLabel: "Register Now — Reserve Your Place",
+    ctaHref:
+      "/contact?subject=" +
+      encodeURIComponent("Register: Beyond AIOps — 25 November 2026"),
+  },
+  {
+    slug: "skills-challenge-hackathon-2025",
+    title: "Skills Challenge — Solving Real-World Problems Hackathon",
+    month: "Aug",
+    day: "23",
+    date: "2025-08-23",
+    dateLabel: "23 August 2025",
+    location: "Dublin, Ireland",
+    status: "past" as const,
+    summary:
+      "A live Dublin hackathon with a global livestream, where university students, alumni and early-career professionals apply AWS to real-world problems across Cloud DevOps, Artificial Intelligence and Cybersecurity.",
+    body: "Live event held in Dublin, Ireland with a livestream for a global audience. The goal of this event is to engage university students, alumni, and early-career professionals in a hands-on learning experience where they can apply cloud technologies to solve real-world problems. This will be both an educational and community-building event, designed to showcase how AWS enables innovation through its tools and services.\n\nThe Hackathon will feature three main tracks: Cloud DevOps, Artificial Intelligence, and Cybersecurity, where participants will work in teams to develop creative solutions using AWS services such as AWS Lambda, SageMaker, CodePipeline, and IAM. These tracks were chosen because they reflect high-demand skill areas and offer practical value to participants and organisations alike.\n\nThis event aims to promote AWS best practices in real-world applications and help uncover new talent. Participants will not only gain valuable technical exposure but will also build confidence in using AWS services to solve challenges. Winners from each track will receive AWS-sponsored mentorships, branded items, and scholarships to continue their learning journey.",
+  },
+  {
+    slug: "aiops-tech-impact-future-forum-2025",
+    title:
+      "AIOps Tech Impact & Future Forum: Real-Time Intelligence, Automation, and Resilience",
+    month: "Oct",
+    day: "14",
+    date: "2025-10-14",
+    dateLabel: "14 October 2025",
+    status: "past" as const,
+    summary:
+      "A two-hour forum showcasing CloudHight’s AIOps Demo Platform — AWS-native services and AI/ML for real-time monitoring, anomaly detection, automated incident response and self-healing workflows.",
+    body: "The event “AIOps Tech Impact & Future Forum: Real-Time Intelligence, Automation, and Resilience” will showcase CloudHight Consulting’s AIOps Demo Platform, designed to highlight how AWS-native services combined with AI/ML can modernise IT operations through real-time monitoring, anomaly detection, automated incident response, self-healing workflows, and enhanced security.\n\nTargeting CTOs, CIOs, DevOps managers, SRE teams, and enterprises undergoing digital transformation, the two-hour session will feature a keynote on business challenges, customer use cases, a live demo of end-to-end capabilities, a success story, networking, and interactive discussions.\n\nThe goal of the event is to demonstrate the business value of AIOps, educate technical teams on automation with AWS services, and position CloudHight Consulting as a trusted partner for organisations seeking to transform their IT operations.",
   },
   {
     slug: "aiops-finops-breakfast-briefing",
@@ -564,6 +649,42 @@ export const events = [
     status: "past" as const,
     summary:
       "A day covering multi-cloud architecture, DevOps automation, and hands-on workshops for local teams.",
+  },
+  {
+    slug: "aws-agentic-ai-leadership-connect",
+    title: "AWS Agentic AI Leadership Connect",
+    month: "Sep",
+    day: "22",
+    date: "2026-09-22",
+    dateLabel: "22 September 2026",
+    status: "past" as const,
+    summary:
+      "An exclusive engagement for business and technology leaders exploring how Agentic AI can drive meaningful business transformation.",
+    body: "An exclusive engagement bringing together business and technology leaders to explore how Agentic AI can drive meaningful business transformation.\n\nThrough this event, we will showcase how AI agents can reason, plan, take action, and automate complex workflows to improve customer experiences, increase operational efficiency, enhance workforce productivity, and accelerate business growth.\n\nThe session will focus on practical, high-value use cases relevant to organizations while creating an opportunity to engage with customers, understand their priorities, identify potential Agentic AI workloads, and explore how AWS can help turn these opportunities into scalable, secure, and impactful solutions.\n\nOur goal is to move the Agentic AI conversation from possibility to action, helping customers identify real business opportunities and define the next steps toward implementation.",
+  },
+  {
+    slug: "aws-ai-accelerator-2026",
+    title: "AWS AI Accelerator 2026",
+    month: "Sep",
+    day: "27–28",
+    date: "2026-09-27",
+    dateLabel: "27–28 September 2026",
+    status: "past" as const,
+    summary:
+      "A two-day AWS AI Accelerator for technology professionals, developers, AI enthusiasts and aspiring technology entrepreneurs building and launching AI solutions on AWS.",
+    body: "A two-day AWS AI Accelerator event designed to engage technology professionals, developers, AI enthusiasts, and aspiring technology entrepreneurs who are interested in building and launching AI solutions using AWS.\n\nThrough this program, we are bringing together potential AWS customers and future technology decision-makers to introduce them to AWS AI and Generative AI capabilities. Participants will explore practical AI use cases, experience AWS solutions through demonstrations, and understand how they can use AWS to develop, deploy, and scale their AI projects.",
+  },
+  {
+    slug: "aws-ai-builders-business-summit-2026",
+    title: "AWS AI Builders & Business Summit 2026",
+    month: "Oct",
+    day: "20",
+    date: "2026-10-20",
+    dateLabel: "20 October 2026",
+    status: "past" as const,
+    summary:
+      "A customer-focused summit bringing together business leaders, decision-makers, entrepreneurs and technology builders to explore how AI on AWS can solve real business challenges.",
+    body: "AWS AI Builders & Business Summit 2026 is a customer-focused event designed to bring together business leaders, decision-makers, entrepreneurs, and technology builders to explore how AI on AWS can solve real business challenges and create measurable business value.\n\nWe are organizing this event to connect organizations actively exploring AI adoption with practical solutions, AWS expertise, and implementation capabilities. Through business-focused sessions, live AI demonstrations, real-world use cases, and one-to-one conversations, participants will identify opportunities where Generative AI and Agentic AI can improve operations, automate processes, enhance customer experiences, and create new digital products.",
   },
 ];
 
