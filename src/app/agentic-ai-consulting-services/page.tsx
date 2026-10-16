@@ -1031,16 +1031,16 @@ export default function AgenticAiConsultingPage() {
 
       <section className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12">
-            <SectionTitle
-              eyebrow="Why CloudHight?"
-              title="AI Expertise Meets Cloud Engineering"
-            />
-            <div className="-mt-6 flex justify-center">
-              <span className="inline-flex bg-white rounded-xl p-2">
-                <AwsAiCompetencyBadge size={88} />
-              </span>
+          <div className="mb-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <div className="min-w-0">
+              <SectionEyebrow>Why CloudHight?</SectionEyebrow>
+              <h2 className="text-3xl md:text-4xl font-bold text-gradient">
+                AI Expertise Meets Cloud Engineering
+              </h2>
             </div>
+            <span className="inline-flex shrink-0">
+              <AwsAiCompetencyBadge size={88} />
+            </span>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {differentiators.map((item) => (
