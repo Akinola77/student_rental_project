@@ -1031,12 +1031,12 @@ export default function AgenticAiConsultingPage() {
 
       <section className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mb-12">
             <SectionTitle
               eyebrow="Why CloudHight?"
               title="AI Expertise Meets Cloud Engineering"
             />
-            <div className="flex flex-wrap items-center gap-4 lg:mb-12">
+            <div className="-mt-6 flex justify-center">
               <span className="inline-flex bg-white rounded-xl p-2">
                 <AwsAiCompetencyBadge size={88} />
               </span>
