@@ -74,7 +74,7 @@ export default function PartnerProgramPage() {
             All-Ireland Business Foundation.
           </p>
           <CredentialRow
-            items={["advanced", "ai", "rds", "waf", "specializations"]}
+            items={["advanced", "ai", "rds", "waf", "cloudfront"]}
             className="flex flex-wrap justify-center items-center gap-6 mb-8"
           />
           <div className="flex flex-wrap justify-center gap-3 mb-8">

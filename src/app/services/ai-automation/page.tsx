@@ -961,7 +961,7 @@ export default function AiAutomationPage() {
             title="AI Expertise Validated by AWS"
             subtitle="Building enterprise AI requires more than access to a foundation model. Organisations need secure architecture, cloud engineering, application integration, governance and operational capability. CloudHight combines AWS expertise with AI engineering to help organisations design and implement production-ready AI solutions."
           />
-          <CredentialRow items={["advanced", "ai", "agentic"]} />
+          <CredentialRow items={["advanced", "ai"]} />
           <p className="text-center text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed">
             AWS AI Competency recognises validated AWS Partners with
             demonstrated technical expertise and customer experience in

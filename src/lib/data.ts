@@ -253,16 +253,10 @@ export const alliances = [
     layout: "square" as const,
   },
   {
-    name: "AWS Partner — AI Services Competency — Agentic AI Consulting Services",
-    logo: "/photos/aws-partner-ai-services-competency-agentic-ai.png",
+    name: "AWS Partner — Amazon CloudFront Delivery",
+    logo: "/photos/aws-partner-amazon-cloudfront-delivery.png",
     link: "https://aws.amazon.com/partners/",
-    layout: "lockup" as const,
-  },
-  {
-    name: "AWS Partner — Advanced Tier Services — AWS WAF Delivery, Amazon RDS Delivery, AI Services Competency, Amazon CloudFront Delivery",
-    logo: "/photos/aws-partner-advanced-tier-specializations.png",
-    link: "https://aws.amazon.com/partners/",
-    layout: "lockup" as const,
+    layout: "square" as const,
   },
 ];
 
@@ -389,7 +383,7 @@ export const overview = {
     {
       title: "Amazon CloudFront Delivery",
       description:
-        "AWS Service Delivery designation for Amazon CloudFront, included in CloudHight’s Advanced Tier Services partner lockup.",
+        "AWS Service Delivery designation for Amazon CloudFront, recognising validated experience delivering content with CloudFront.",
     },
     {
       title: "Business All-Star 2026 Accredited",

@@ -152,8 +152,7 @@ export default function OverviewPage() {
               "ai",
               "rds",
               "waf",
-              "agentic",
-              "specializations",
+              "cloudfront",
               "allstar",
             ]}
           />

@@ -115,6 +115,12 @@ const compactBadges = {
     width: 120,
     height: 120,
   },
+  cloudfront: {
+    src: "/photos/aws-partner-amazon-cloudfront-delivery.png",
+    alt: "AWS Partner — Amazon CloudFront Delivery",
+    width: 120,
+    height: 120,
+  },
   allstar: {
     src: "/photos/business-allstar-2026.png",
     alt: "Business All-Star 2026 Accredited",
