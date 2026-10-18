@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { roleTitles } from "@/lib/careers";
+import { site } from "@/lib/data";
 
 type Variant = "academy" | "partner" | "contact" | "event" | "job";
 
@@ -18,13 +19,35 @@ export default function InquiryForm({
 }) {
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setBusy(true);
-    await new Promise((r) => setTimeout(r, 400));
-    setBusy(false);
-    setDone(true);
+    setError("");
+    try {
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      data.set("variant", variant);
+      const res = await fetch("/api/enquiry", { method: "POST", body: data });
+      const payload = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+      if (!res.ok || !payload?.ok) {
+        setError(
+          payload?.error ||
+            `We could not send your message just now. Please email ${site.email} directly.`,
+        );
+        return;
+      }
+      setDone(true);
+    } catch {
+      setError(
+        `We could not send your message just now. Please email ${site.email} directly.`,
+      );
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (done) {
@@ -46,7 +69,8 @@ export default function InquiryForm({
 
   if (variant === "contact") {
     return (
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form onSubmit={onSubmit} className="relative space-y-5">
+        <Honeypot />
         <div className="grid md:grid-cols-2 gap-5">
           <Field label="Full Name" name="name" required />
           <Field label="Email Address" name="email" type="email" required />
@@ -55,19 +79,15 @@ export default function InquiryForm({
         </div>
         <Field label="Subject" name="subject" defaultValue={defaultSubject} />
         <Field label="Message" name="message" textarea required />
-        <button
-          disabled={busy}
-          className="px-6 py-3 bg-ocu-cyan text-white rounded-lg font-bold hover:-translate-y-0.5 transition-all"
-        >
-          {busy ? "Sending…" : "Send Message"}
-        </button>
+        <FormStatus busy={busy} error={error} label="Send Message" />
       </form>
     );
   }
 
   if (variant === "event") {
     return (
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form onSubmit={onSubmit} className="relative space-y-5">
+        <Honeypot />
         <div className="grid md:grid-cols-2 gap-5">
           <Field label="Full Name" name="name" required />
           <Field label="Email" name="email" type="email" required />
@@ -78,19 +98,20 @@ export default function InquiryForm({
           <Field label="Expected Attendees" name="attendees" />
         </div>
         <Field label="Additional Details" name="details" textarea />
-        <button
-          disabled={busy}
+        <FormStatus
+          busy={busy}
+          error={error}
+          label="Submit Request"
           className="w-full bg-[#0A2A5E] text-white py-3 rounded font-bold"
-        >
-          {busy ? "Submitting…" : "Submit Request"}
-        </button>
+        />
       </form>
     );
   }
 
   if (variant === "job") {
     return (
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form onSubmit={onSubmit} className="relative space-y-5">
+        <Honeypot />
         <div className="grid md:grid-cols-2 gap-5">
           <Field label="Full Name" name="name" required />
           <Field label="Email" name="email" type="email" required />
@@ -109,16 +130,17 @@ export default function InquiryForm({
             type="file"
             name="resume"
             required
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             className="mt-1 block w-full text-sm"
           />
         </label>
         <Field label="Cover Letter" name="cover" textarea />
-        <button
-          disabled={busy}
+        <FormStatus
+          busy={busy}
+          error={error}
+          label="Submit Application"
           className="w-full bg-[#0A2A5E] text-white py-3 rounded font-bold"
-        >
-          {busy ? "Submitting…" : "Submit Application"}
-        </button>
+        />
         <p className="text-sm text-gray-500">
           <strong className="font-semibold text-gray-600">What happens next?</strong>{" "}
           Our team will review your application and contact you if we would like
@@ -131,7 +153,8 @@ export default function InquiryForm({
   const isPartner = variant === "partner";
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
+    <form onSubmit={onSubmit} className="relative space-y-6">
+      <Honeypot />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <Field
           label={isPartner ? "Company Name" : "Institution Name"}
@@ -227,16 +250,12 @@ export default function InquiryForm({
         </>
       )}
       <Field label="Message / Requirements" name="message" textarea />
-      <button
-        disabled={busy}
+      <FormStatus
+        busy={busy}
+        error={error}
+        label={isPartner ? "Apply to Partner" : "Submit Inquiry"}
         className="w-full bg-[#0A2A5E] hover:bg-[#0d3678] text-white py-3 rounded font-bold transition-colors"
-      >
-        {busy
-          ? "Submitting…"
-          : isPartner
-            ? "Apply to Partner"
-            : "Submit Inquiry"}
-      </button>
+      />
       <p className="text-sm text-gray-500">
         <strong className="font-semibold text-gray-600">What happens next?</strong>{" "}
         {isPartner
@@ -244,6 +263,45 @@ export default function InquiryForm({
           : "Our MotivaLogic Academy team will review your request and contact your designated point of contact to arrange an initial discussion."}
       </p>
     </form>
+  );
+}
+
+function Honeypot() {
+  return (
+    <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+      <label>
+        Website
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </label>
+    </div>
+  );
+}
+
+function FormStatus({
+  busy,
+  error,
+  label,
+  className = "px-6 py-3 bg-ocu-cyan text-white rounded-lg font-bold hover:-translate-y-0.5 transition-all",
+}: {
+  busy: boolean;
+  error: string;
+  label: string;
+  className?: string;
+}) {
+  return (
+    <>
+      {error ? (
+        <p
+          role="alert"
+          className="text-sm text-red-700 bg-red-50 border border-red-100 rounded-lg p-3"
+        >
+          {error}
+        </p>
+      ) : null}
+      <button disabled={busy} className={className}>
+        {busy ? (label.startsWith("Send") ? "Sending…" : "Submitting…") : label}
+      </button>
+    </>
   );
 }
 
