@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { roleTitles } from "@/lib/careers";
 import { site } from "@/lib/data";
+import TurnstileField from "@/components/TurnstileField";
 
 type Variant = "academy" | "partner" | "contact" | "event" | "job";
 
@@ -29,7 +30,7 @@ export default function InquiryForm({
       const form = e.currentTarget;
       const data = new FormData(form);
       data.set("variant", variant);
-      const res = await fetch("/api/enquiry", { method: "POST", body: data });
+      const res = await fetch("/api/contact", { method: "POST", body: data });
       const payload = (await res.json().catch(() => null)) as
         | { ok?: boolean; error?: string }
         | null;
@@ -79,6 +80,7 @@ export default function InquiryForm({
         </div>
         <Field label="Subject" name="subject" defaultValue={defaultSubject} />
         <Field label="Message" name="message" textarea required />
+        <TurnstileField resetKey={error} />
         <FormStatus busy={busy} error={error} label="Send Message" />
       </form>
     );
@@ -98,6 +100,7 @@ export default function InquiryForm({
           <Field label="Expected Attendees" name="attendees" />
         </div>
         <Field label="Additional Details" name="details" textarea />
+        <TurnstileField resetKey={error} />
         <FormStatus
           busy={busy}
           error={error}
@@ -135,6 +138,7 @@ export default function InquiryForm({
           />
         </label>
         <Field label="Cover Letter" name="cover" textarea />
+        <TurnstileField resetKey={error} />
         <FormStatus
           busy={busy}
           error={error}
@@ -250,6 +254,7 @@ export default function InquiryForm({
         </>
       )}
       <Field label="Message / Requirements" name="message" textarea />
+      <TurnstileField resetKey={error} />
       <FormStatus
         busy={busy}
         error={error}
