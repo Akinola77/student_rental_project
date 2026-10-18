@@ -97,6 +97,6 @@ Password-protect **test** under **Hosting → Access control** so the staging si
 
 ### 5. After go-live
 
-Forms email `info@cloudhight.com` once SMTP or SES is configured on the Amplify branch. Content Admin is still a placeholder.
+Forms email `info@cloudhight.com` once SMTP or SES is configured on the Amplify branch. Content Admin and MotivaLogic Academy routes are unpublished (404).
 
 If the first Amplify build fails on Next.js **16**, Amplify’s documented SSR range is Next.js 12–15. Use the build logs, then we can pin Next.js 15 for Hosting if required.

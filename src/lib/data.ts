@@ -7,7 +7,6 @@ export const site = {
   phone: "+353 1 9609957",
   address: "77 Camden Street Lower\nSaint Kevin's, Dublin, D02 XE80\nIreland",
   linkedin: "https://www.linkedin.com/company/cloudhight-consulting/",
-  academyUrl: "https://academy.cloudhight.com",
 };
 
 export const nav = {
@@ -114,26 +113,6 @@ export const nav = {
     { label: "Team", path: "/team", public: false },
     { label: "Careers", path: "/join-us" },
     { label: "Partners", path: "/academic-alliance" },
-  ],
-  academy: [
-    { label: "Overview", path: "/motivalogic-academy" },
-    {
-      label: "AWS Certification Excellence",
-      path: "/academic-alliance/aws-certification-excellence",
-    },
-    {
-      label: "Roadmap Sessions",
-      path: "/academic-alliance/aws-certification-roadmap",
-    },
-    {
-      label: "Certification Lobby",
-      path: "/academic-alliance/aws-certification-lobby",
-    },
-    {
-      label: "Mock Examination",
-      path: "/academic-alliance/aws-mock-examination",
-    },
-    { label: "CloudHight Academy", path: "https://academy.cloudhight.com" },
   ],
 };
 
