@@ -3,7 +3,10 @@ import { legacyRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "localhost"],
-  serverExternalPackages: ["nodemailer", "@aws-sdk/client-sesv2"],
+  serverExternalPackages: [
+    "@aws-sdk/client-sesv2",
+    "@aws-sdk/client-dynamodb",
+  ],
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },

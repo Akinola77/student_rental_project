@@ -56,27 +56,67 @@ Build settings live in `amplify.yml` (`baseDirectory: .next`). Node `20` is pinn
   (use the Amplify branch URL until the test domain is attached)
 - **`main`:** `NEXT_PUBLIC_SITE_URL` = `https://cloudhight.com`
 
-Contact, careers, partner, academy and event forms POST to `/api/enquiry` and email **`info@cloudhight.com`**. Configure one mail transport per branch (SMTP is enough; SES is the Amplify-native option):
+Contact, careers, partner, academy and event forms POST to **`/api/contact`** (Node.js runtime). Mail is sent with **Amazon SES v2 in `eu-west-1`** using the Amplify SSR compute IAM role (`CloudhightAmplifySSRComputeRole`) and the default AWS credential provider chain. There are no hardcoded AWS keys. `From` is always `info@cloudhight.com`; the visitor address is **Reply-To** on the internal copy only.
 
-| Variable | Required | Example |
-| --- | --- | --- |
-| `MAIL_TO` | No (defaults to `info@cloudhight.com`) | `info@cloudhight.com` |
-| `MAIL_FROM` | Recommended | `CloudHight Consulting <info@cloudhight.com>` |
-| `SMTP_HOST` | For SMTP | `email-smtp.eu-west-1.amazonaws.com` or `smtp.office365.com` |
-| `SMTP_PORT` | For SMTP | `587` |
-| `SMTP_USER` | For SMTP | SES SMTP user or mailbox |
-| `SMTP_PASS` | For SMTP | SES SMTP password or mailbox app password |
-| `SMTP_SECURE` | No | `true` only if using port `465` |
-| `MAIL_TRANSPORT` | For SES without SMTP | `ses` |
-| `SES_REGION` | For SES | `eu-west-1` |
+Public submissions **fail closed** until Turnstile and DynamoDB rate limiting are configured. In-memory rate limiting is not used.
 
-For Amazon SES on Amplify Hosting compute:
+**Branch environment variables** (never put secrets in `NEXT_PUBLIC_*`):
 
-1. Verify `info@cloudhight.com` (or the `cloudhight.com` domain) in SES in the same region.
-2. Attach `ses:SendEmail` and `ses:SendRawEmail` to the Amplify SSR compute service role.
-3. Set `MAIL_TRANSPORT=ses`, `MAIL_FROM`, and `SES_REGION`. SES sandbox can deliver to `info@cloudhight.com` once that address is verified.
+| Variable | Public? | Required | Purpose |
+| --- | --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Yes | Canonical site URL |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Yes (widget site key) | Yes | Cloudflare Turnstile widget |
+| `TURNSTILE_SECRET_KEY` | **No** | Yes | Server-side Turnstile verification |
+| `CONTACT_RATE_LIMIT_TABLE` | **No** | Yes | DynamoDB table name for per-IP rate limits |
 
-Reply-To on each message is the visitor’s email so the team can reply from the inbox. Job applications attach the CV (PDF or Word, max 4 MB). Redeploy the branch after changing variables.
+SES sender/recipient are fixed in code to `info@cloudhight.com` in `eu-west-1`. Amplify already injects `AWS_REGION` and the compute role credentials.
+
+### Amazon SES + security (Amplify compute)
+
+1. Confirm `cloudhight.com` is a verified SES identity in **eu-west-1** with DKIM and production access (already done).
+2. Attach SES and DynamoDB permissions to **`CloudhightAmplifySSRComputeRole`** (do not paste access keys into Amplify):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SendFromVerifiedIdentity",
+      "Effect": "Allow",
+      "Action": ["ses:SendEmail", "ses:SendRawEmail"],
+      "Resource": [
+        "arn:aws:ses:eu-west-1:<account-id>:identity/cloudhight.com",
+        "arn:aws:ses:eu-west-1:<account-id>:identity/info@cloudhight.com"
+      ]
+    },
+    {
+      "Sid": "ContactRateLimit",
+      "Effect": "Allow",
+      "Action": ["dynamodb:UpdateItem"],
+      "Resource": "arn:aws:dynamodb:eu-west-1:<account-id>:table/<CONTACT_RATE_LIMIT_TABLE>"
+    }
+  ]
+}
+```
+
+3. Create the DynamoDB table in **eu-west-1** (on-demand billing is enough):
+   - Partition key: `pk` (String)
+   - TTL attribute: `ttl`
+   - Example name: `cloudhight-contact-rate-limit`
+4. Create a Cloudflare Turnstile widget for the test (and later production) hostname. Put the **site** key in `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and the **secret** in `TURNSTILE_SECRET_KEY`.
+5. Redeploy the Amplify branch after saving variables and IAM.
+
+Each successful enquiry sends two SES messages: an internal notification to `info@cloudhight.com`, then an acknowledgement to the visitor. If the acknowledgement fails, the API still returns success because the team already has the enquiry. Job applications attach the CV (PDF or Word, max 4 MB).
+
+### Prove WEB_COMPUTE is executing route handlers
+
+Amplify’s documented SSR range is Next.js 12–15; this app is **16.3.4**. A successful static build does **not** prove App Router handlers run. After a test deploy:
+
+```bash
+curl -sS https://<amplify-test-host>/api/health
+```
+
+Expect JSON with `"ok": true`, `"runtime": "nodejs"`, and a live `time`. If that URL 404s or returns HTML, Hosting is not running compute for this Next 16 app — do not enable public forms on that deployment.
 
 ### 3. Add production
 
@@ -97,6 +137,6 @@ Password-protect **test** under **Hosting → Access control** so the staging si
 
 ### 5. After go-live
 
-Forms email `info@cloudhight.com` once SMTP or SES is configured on the Amplify branch. Content Admin and MotivaLogic Academy routes are unpublished (404).
+Forms email `info@cloudhight.com` through SES once Turnstile, the rate-limit table, and the compute IAM policy are in place. Content Admin and MotivaLogic Academy routes are unpublished (404).
 
 If the first Amplify build fails on Next.js **16**, Amplify’s documented SSR range is Next.js 12–15. Use the build logs, then we can pin Next.js 15 for Hosting if required.
