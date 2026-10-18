@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import ChatWidget from "@/components/ChatWidget";
 import HashScroll from "@/components/HashScroll";
 import { SITE_ORIGIN } from "@/lib/site";
 
@@ -48,7 +47,6 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <CookieBanner />
-        <ChatWidget />
       </body>
     </html>
   );
