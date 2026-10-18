@@ -22,7 +22,8 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold text-ocu-blue mt-10 mb-3">How we use it</h2>
         <p className="text-gray-600 leading-relaxed mb-4">
           To respond to your enquiry, administer partnership and academy programmes,
-          evaluate applications, and improve the website. We do not sell personal data.
+          evaluate applications, and improve the website. Form submissions are emailed
+          to {site.email}. We do not sell personal data.
         </p>
         <h2 className="text-2xl font-bold text-ocu-blue mt-10 mb-3">Contact</h2>
         <p className="text-gray-600 leading-relaxed">
