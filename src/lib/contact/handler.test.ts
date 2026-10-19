@@ -91,6 +91,7 @@ test("rejects a missing Turnstile token", async () => {
   assert.equal(res.status, 400);
   const json = await res.json();
   assert.equal(json.ok, false);
+  assert.match(json.error, /verification/i);
 });
 
 test("rejects an empty Turnstile token", async () => {
@@ -101,6 +102,8 @@ test("rejects an empty Turnstile token", async () => {
     deps(),
   );
   assert.equal(res.status, 400);
+  const json = await res.json();
+  assert.match(json.error, /verification/i);
 });
 
 test("rejects CAPTCHA failure", async () => {
