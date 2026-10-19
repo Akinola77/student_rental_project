@@ -82,6 +82,27 @@ test("rejects invalid payloads", async () => {
   assert.equal(res.status, 400);
 });
 
+test("rejects a missing Turnstile token", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  const payload = { ...valid };
+  delete payload["cf-turnstile-response"];
+  const res = await handleContactPost(request(form(payload)), deps());
+  assert.equal(res.status, 400);
+  const json = await res.json();
+  assert.equal(json.ok, false);
+});
+
+test("rejects an empty Turnstile token", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  const res = await handleContactPost(
+    request(form({ ...valid, "cf-turnstile-response": "   " })),
+    deps(),
+  );
+  assert.equal(res.status, 400);
+});
+
 test("rejects CAPTCHA failure", async () => {
   process.env.TURNSTILE_SECRET_KEY = "test-secret";
   process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
@@ -92,6 +113,27 @@ test("rejects CAPTCHA failure", async () => {
   assert.equal(res.status, 400);
   const json = await res.json();
   assert.match(json.error, /verification/i);
+});
+
+test("rejects the sixth submission from the same IP within ten minutes", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  let attempts = 0;
+  const limited = deps({
+    consumeLimit: async () => {
+      attempts += 1;
+      if (attempts > 5) return { ok: false as const, reason: "limited" as const };
+      return { ok: true as const };
+    },
+  });
+  for (let i = 0; i < 5; i += 1) {
+    const res = await handleContactPost(request(form(valid)), limited);
+    assert.equal(res.status, 200, `attempt ${i + 1}`);
+  }
+  const sixth = await handleContactPost(request(form(valid)), limited);
+  assert.equal(sixth.status, 429);
+  const json = await sixth.json();
+  assert.match(json.error, /few minutes/i);
 });
 
 test("returns 429 when the IP is rate limited", async () => {

@@ -3,6 +3,7 @@ import { legacyRedirects } from "./src/lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "localhost"],
+  productionBrowserSourceMaps: false,
   serverExternalPackages: [
     "@aws-sdk/client-sesv2",
     "@aws-sdk/client-dynamodb",

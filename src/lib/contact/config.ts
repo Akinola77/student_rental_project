@@ -1,4 +1,5 @@
-import { bakedContactRuntimeEnv } from "./runtime-env.generated.ts";
+import { bakedContactRuntimeEnv as defaults } from "./runtime-env.defaults.ts";
+import { bakedContactRuntimeEnv as generated } from "./runtime-env.generated.ts";
 
 /** Runtime secrets Next.js SSR needs after the Amplify `.env.production` bake. */
 export const CONTACT_RUNTIME_ENV_NAMES = [
@@ -15,17 +16,18 @@ function trimEnv(value: string | undefined) {
  * the Amplify-generated server module when compute does not inherit Console
  * variables. Never read these from a Client Component.
  */
+function baked(name: "TURNSTILE_SECRET_KEY" | "CONTACT_RATE_LIMIT_TABLE") {
+  return trimEnv(generated[name]) || trimEnv(defaults[name]);
+}
+
 export function turnstileSecretKey() {
-  return (
-    trimEnv(process.env.TURNSTILE_SECRET_KEY) ||
-    trimEnv(bakedContactRuntimeEnv.TURNSTILE_SECRET_KEY)
-  );
+  return trimEnv(process.env.TURNSTILE_SECRET_KEY) || baked("TURNSTILE_SECRET_KEY");
 }
 
 export function contactRateLimitTable() {
   return (
     trimEnv(process.env.CONTACT_RATE_LIMIT_TABLE) ||
-    trimEnv(bakedContactRuntimeEnv.CONTACT_RATE_LIMIT_TABLE)
+    baked("CONTACT_RATE_LIMIT_TABLE")
   );
 }
 

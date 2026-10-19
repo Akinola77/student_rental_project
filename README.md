@@ -50,7 +50,7 @@ Build settings live in `amplify.yml` (`baseDirectory: .next`). Node `20` is pinn
 
 Amplify Console variables are available at **build** time. Next.js SSR compute does **not** receive them unless they are written to `.env.production` before `npm run build` ([Amplify Next.js SSR env vars](https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html)). `amplify.yml` runs `scripts/write-amplify-env.mjs` for that. The script logs **variable names only** (including which required names are missing) and never prints values. `.env.production` is gitignored and must not be committed.
 
-Next.js 16 does not inline server-only `process.env` values into `.next`. On Amplify the same script also fills `src/lib/contact/runtime-env.generated.ts` (empty in git) so `TURNSTILE_SECRET_KEY` and `CONTACT_RATE_LIMIT_TABLE` are present in the server bundle. That module must never be imported from a Client Component.
+Next.js 16 does not inline server-only `process.env` values into `.next`. On Amplify the same script also fills gitignored `src/lib/contact/runtime-env.generated.ts` so `TURNSTILE_SECRET_KEY` and `CONTACT_RATE_LIMIT_TABLE` are present in the server bundle. That module must never be imported from a Client Component and must never be committed.
 
 ### 2. Branch environment variables
 

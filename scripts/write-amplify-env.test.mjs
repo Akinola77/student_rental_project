@@ -43,7 +43,8 @@ test("writes allowlisted Amplify vars to .env.production", () => {
   assert.match(result.stdout, /NEXT_PUBLIC_TURNSTILE_SITE_KEY/);
   assert.doesNotMatch(result.stdout, new RegExp(SECRET));
   assert.doesNotMatch(result.stderr || "", new RegExp(SECRET));
-  assert.equal(baked, "");
+  assert.match(baked, /TURNSTILE_SECRET_KEY: ""/);
+  assert.doesNotMatch(baked, new RegExp(SECRET));
 });
 
 test("on Amplify, bakes server-only runtime values without logging them", () => {

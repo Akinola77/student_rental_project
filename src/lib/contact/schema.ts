@@ -43,7 +43,7 @@ export const contactFieldsSchema = z
     objective: medium.optional(),
     timeline: short.optional(),
     website: z.string().max(200).optional(),
-    turnstileToken: z.string().min(1).max(8_000),
+    turnstileToken: z.string().trim().min(1).max(8_000),
   })
   .superRefine((value, ctx) => {
     if (value.variant === "contact" && !value.message) {
