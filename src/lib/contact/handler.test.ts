@@ -52,11 +52,24 @@ const valid = {
 test("fails closed when Turnstile or the rate-limit table is missing", async () => {
   delete process.env.TURNSTILE_SECRET_KEY;
   delete process.env.CONTACT_RATE_LIMIT_TABLE;
-  const res = await handleContactPost(request(form(valid)), deps());
-  assert.equal(res.status, 503);
-  const json = await res.json();
-  assert.equal(json.ok, false);
-  assert.equal(json.error, PUBLIC_ERROR);
+  const lines: string[] = [];
+  const original = console.error;
+  console.error = (...args: unknown[]) => {
+    lines.push(args.map(String).join(" "));
+  };
+  try {
+    const res = await handleContactPost(request(form(valid)), deps());
+    assert.equal(res.status, 503);
+    const json = await res.json();
+    assert.equal(json.ok, false);
+    assert.equal(json.error, PUBLIC_ERROR);
+    assert.doesNotMatch(json.error, /TURNSTILE_SECRET_KEY|CONTACT_RATE_LIMIT_TABLE/);
+  } finally {
+    console.error = original;
+  }
+  const joined = lines.join("\n");
+  assert.match(joined, /missing environment variables: TURNSTILE_SECRET_KEY, CONTACT_RATE_LIMIT_TABLE/);
+  assert.doesNotMatch(joined, /test-secret/);
 });
 
 test("rejects invalid payloads", async () => {

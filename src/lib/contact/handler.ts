@@ -1,10 +1,14 @@
 import { SES_MAILBOX, sendSesEmail } from "../ses.ts";
+import {
+  contactSecurityConfigured,
+  logMissingContactRuntimeEnv,
+} from "./config.ts";
 import { resolveClientIp } from "./ip.ts";
 import { acknowledgementSubject, acknowledgementText, internalSubject, internalText } from "./messages.ts";
 import { buildRawEmail } from "./mime.ts";
-import { consumeRateLimit, rateLimitTableName } from "./rate-limit.ts";
+import { consumeRateLimit } from "./rate-limit.ts";
 import { contactFieldsSchema } from "./schema.ts";
-import { turnstileConfigured, verifyTurnstileToken } from "./turnstile.ts";
+import { verifyTurnstileToken } from "./turnstile.ts";
 
 export const MAX_CONTACT_BODY_BYTES = 4.5 * 1024 * 1024;
 const MAX_RESUME_BYTES = 4 * 1024 * 1024;
@@ -63,7 +67,7 @@ async function readResume(form: FormData): Promise<Resume | { error: string }> {
 }
 
 export function securityConfigured() {
-  return turnstileConfigured() && Boolean(rateLimitTableName());
+  return contactSecurityConfigured();
 }
 
 export async function handleContactPost(
@@ -76,7 +80,7 @@ export async function handleContactPost(
   }
 
   if (!securityConfigured()) {
-    console.error("Contact API refused: Turnstile or rate-limit table is not configured");
+    logMissingContactRuntimeEnv();
     return fail(PUBLIC_ERROR, 503);
   }
 

@@ -48,6 +48,8 @@ Workflow: merge work into `staging` to test, then merge `staging` into `main` to
 
 Build settings live in `amplify.yml` (`baseDirectory: .next`). Node `20` is pinned in `.nvmrc`.
 
+Amplify Console variables are available at **build** time. Next.js SSR compute does **not** receive them unless they are written to `.env.production` before `npm run build` ([Amplify Next.js SSR env vars](https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html)). `amplify.yml` runs `scripts/write-amplify-env.mjs` for that. The script logs **variable names only** (including which required names are missing) and never prints values. `.env.production` is gitignored and must not be committed.
+
 ### 2. Branch environment variables
 
 **Hosting → Environment variables** (branch-specific):
@@ -104,7 +106,7 @@ SES sender/recipient are fixed in code to `info@cloudhight.com` in `eu-west-1`. 
    - TTL attribute: `ttl`
    - Example name: `cloudhight-contact-rate-limit`
 4. Create a Cloudflare Turnstile widget for the test (and later production) hostname. Put the **site** key in `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and the **secret** in `TURNSTILE_SECRET_KEY`.
-5. Redeploy the Amplify branch after saving variables and IAM.
+5. Redeploy the Amplify branch after saving variables and IAM so `amplify.yml` can bake the Console values into the Next.js SSR runtime via `.env.production`. If `/api/contact` still returns HTTP 503, check the compute log for `missing environment variables:` — it lists **names only**.
 
 Each successful enquiry sends two SES messages: an internal notification to `info@cloudhight.com`, then an acknowledgement to the visitor. If the acknowledgement fails, the API still returns success because the team already has the enquiry. Job applications attach the CV (PDF or Word, max 4 MB).
 

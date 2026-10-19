@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test src/lib/*.test.ts src/lib/**/*.test.ts"
+    "test": "node --experimental-strip-types --test src/lib/*.test.ts src/lib/**/*.test.ts scripts/*.test.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1152.0",

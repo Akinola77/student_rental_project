@@ -6,6 +6,13 @@ frontend:
         - npm ci
     build:
       commands:
+        # Amplify Next.js SSR: Console env vars are available at build time,
+        # not automatically in the compute runtime. Write them to
+        # `.env.production` before `next build` so Next.js can load them.
+        # https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+        # The helper logs variable names only — never values — and does not
+        # commit `.env.production`.
+        - node scripts/write-amplify-env.mjs
         - npm run build
   artifacts:
     baseDirectory: .next

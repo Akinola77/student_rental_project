@@ -5,6 +5,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { createHash } from "node:crypto";
 import { SES_REGION } from "../ses.ts";
+import { contactRateLimitTable } from "./config.ts";
 
 export const RATE_LIMIT_WINDOW_SECONDS = 10 * 60;
 export const RATE_LIMIT_MAX = 5;
@@ -22,7 +23,7 @@ function ipKey(ip: string, windowStart: number) {
 }
 
 export function rateLimitTableName() {
-  return process.env.CONTACT_RATE_LIMIT_TABLE?.trim() || "";
+  return contactRateLimitTable();
 }
 
 export async function consumeRateLimit(ip: string) {
