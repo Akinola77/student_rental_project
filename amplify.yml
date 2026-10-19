@@ -14,6 +14,8 @@ frontend:
         # commit `.env.production`.
         - node scripts/write-amplify-env.mjs
         - npm run build
+        # Keep a copy inside the compute artifact in case cwd is `.next`.
+        - if [ -f .env.production ]; then cp .env.production .next/.env.production; fi
   artifacts:
     baseDirectory: .next
     files:

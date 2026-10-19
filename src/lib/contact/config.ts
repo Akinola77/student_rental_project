@@ -1,3 +1,5 @@
+import { bakedContactRuntimeEnv } from "./runtime-env.generated.ts";
+
 /** Runtime secrets Next.js SSR needs after the Amplify `.env.production` bake. */
 export const CONTACT_RUNTIME_ENV_NAMES = [
   "TURNSTILE_SECRET_KEY",
@@ -9,15 +11,22 @@ function trimEnv(value: string | undefined) {
 }
 
 /**
- * Static `process.env.NAME` reads so Next.js can inline server env from
- * `.env.production` at build time. Do not switch these to dynamic lookups.
+ * Prefer live `process.env` (static names so Next.js can inline). Fall back to
+ * the Amplify-generated server module when compute does not inherit Console
+ * variables. Never read these from a Client Component.
  */
 export function turnstileSecretKey() {
-  return trimEnv(process.env.TURNSTILE_SECRET_KEY);
+  return (
+    trimEnv(process.env.TURNSTILE_SECRET_KEY) ||
+    trimEnv(bakedContactRuntimeEnv.TURNSTILE_SECRET_KEY)
+  );
 }
 
 export function contactRateLimitTable() {
-  return trimEnv(process.env.CONTACT_RATE_LIMIT_TABLE);
+  return (
+    trimEnv(process.env.CONTACT_RATE_LIMIT_TABLE) ||
+    trimEnv(bakedContactRuntimeEnv.CONTACT_RATE_LIMIT_TABLE)
+  );
 }
 
 export function missingContactRuntimeEnvNames() {
