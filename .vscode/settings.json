@@ -1,0 +1,13 @@
+{
+  "remote.portsAttributes": {
+    "3000": {
+      "label": "CloudHight website",
+      "protocol": "http",
+      "onAutoForward": "notify"
+    },
+    "9222": {
+      "label": "Chrome DevTools (not the website)",
+      "onAutoForward": "ignore"
+    }
+  }
+}
