@@ -27,8 +27,12 @@ export const metadata: Metadata = {
   },
   description: "Transforming businesses through innovative AWS cloud solutions.",
   icons: {
-    icon: "/photos/cloudhight-icon.png",
-    apple: "/photos/cloudhightlogo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/photos/cloudhight-icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/photos/cloudhight-icon.png",
+    shortcut: "/photos/cloudhight-icon.png",
   },
 };
 
