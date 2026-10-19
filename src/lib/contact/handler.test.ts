@@ -52,11 +52,24 @@ const valid = {
 test("fails closed when Turnstile or the rate-limit table is missing", async () => {
   delete process.env.TURNSTILE_SECRET_KEY;
   delete process.env.CONTACT_RATE_LIMIT_TABLE;
-  const res = await handleContactPost(request(form(valid)), deps());
-  assert.equal(res.status, 503);
-  const json = await res.json();
-  assert.equal(json.ok, false);
-  assert.equal(json.error, PUBLIC_ERROR);
+  const lines: string[] = [];
+  const original = console.error;
+  console.error = (...args: unknown[]) => {
+    lines.push(args.map(String).join(" "));
+  };
+  try {
+    const res = await handleContactPost(request(form(valid)), deps());
+    assert.equal(res.status, 503);
+    const json = await res.json();
+    assert.equal(json.ok, false);
+    assert.equal(json.error, PUBLIC_ERROR);
+    assert.doesNotMatch(json.error, /TURNSTILE_SECRET_KEY|CONTACT_RATE_LIMIT_TABLE/);
+  } finally {
+    console.error = original;
+  }
+  const joined = lines.join("\n");
+  assert.match(joined, /missing environment variables: TURNSTILE_SECRET_KEY, CONTACT_RATE_LIMIT_TABLE/);
+  assert.doesNotMatch(joined, /test-secret/);
 });
 
 test("rejects invalid payloads", async () => {
@@ -69,6 +82,30 @@ test("rejects invalid payloads", async () => {
   assert.equal(res.status, 400);
 });
 
+test("rejects a missing Turnstile token", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  const payload = { ...valid };
+  delete payload["cf-turnstile-response"];
+  const res = await handleContactPost(request(form(payload)), deps());
+  assert.equal(res.status, 400);
+  const json = await res.json();
+  assert.equal(json.ok, false);
+  assert.match(json.error, /verification/i);
+});
+
+test("rejects an empty Turnstile token", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  const res = await handleContactPost(
+    request(form({ ...valid, "cf-turnstile-response": "   " })),
+    deps(),
+  );
+  assert.equal(res.status, 400);
+  const json = await res.json();
+  assert.match(json.error, /verification/i);
+});
+
 test("rejects CAPTCHA failure", async () => {
   process.env.TURNSTILE_SECRET_KEY = "test-secret";
   process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
@@ -79,6 +116,27 @@ test("rejects CAPTCHA failure", async () => {
   assert.equal(res.status, 400);
   const json = await res.json();
   assert.match(json.error, /verification/i);
+});
+
+test("rejects the sixth submission from the same IP within ten minutes", async () => {
+  process.env.TURNSTILE_SECRET_KEY = "test-secret";
+  process.env.CONTACT_RATE_LIMIT_TABLE = "contact-rate-limit";
+  let attempts = 0;
+  const limited = deps({
+    consumeLimit: async () => {
+      attempts += 1;
+      if (attempts > 5) return { ok: false as const, reason: "limited" as const };
+      return { ok: true as const };
+    },
+  });
+  for (let i = 0; i < 5; i += 1) {
+    const res = await handleContactPost(request(form(valid)), limited);
+    assert.equal(res.status, 200, `attempt ${i + 1}`);
+  }
+  const sixth = await handleContactPost(request(form(valid)), limited);
+  assert.equal(sixth.status, 429);
+  const json = await sixth.json();
+  assert.match(json.error, /few minutes/i);
 });
 
 test("returns 429 when the IP is rate limited", async () => {

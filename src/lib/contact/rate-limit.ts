@@ -5,6 +5,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { createHash } from "node:crypto";
 import { SES_REGION } from "../ses.ts";
+import { contactRateLimitTable } from "./config.ts";
 
 export const RATE_LIMIT_WINDOW_SECONDS = 10 * 60;
 export const RATE_LIMIT_MAX = 5;
@@ -16,16 +17,21 @@ function getDynamo() {
   return dynamo;
 }
 
+type RateLimitStore = Pick<DynamoDBClient, "send">;
+
 function ipKey(ip: string, windowStart: number) {
   const hash = createHash("sha256").update(ip).digest("hex").slice(0, 32);
   return `rl#${hash}#${windowStart}`;
 }
 
 export function rateLimitTableName() {
-  return process.env.CONTACT_RATE_LIMIT_TABLE?.trim() || "";
+  return contactRateLimitTable();
 }
 
-export async function consumeRateLimit(ip: string) {
+export async function consumeRateLimit(
+  ip: string,
+  store: RateLimitStore = getDynamo(),
+) {
   const table = rateLimitTableName();
   if (!table) {
     return { ok: false as const, reason: "unconfigured" as const };
@@ -36,7 +42,7 @@ export async function consumeRateLimit(ip: string) {
   const ttl = windowStart + RATE_LIMIT_WINDOW_SECONDS + 60;
 
   try {
-    await getDynamo().send(
+    await store.send(
       new UpdateItemCommand({
         TableName: table,
         Key: { pk: { S: ipKey(ip, windowStart) } },

@@ -7,10 +7,12 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/write-amplify-env.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test src/lib/*.test.ts src/lib/**/*.test.ts"
+    "pretest": "node scripts/write-amplify-env.mjs",
+    "test": "node --experimental-strip-types --test src/lib/*.test.ts src/lib/**/*.test.ts scripts/*.test.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1152.0",

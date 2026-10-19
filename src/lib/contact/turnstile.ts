@@ -1,7 +1,9 @@
+import { turnstileSecretKey } from "./config.ts";
+
 const VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 export function turnstileSecret() {
-  return process.env.TURNSTILE_SECRET_KEY?.trim() || "";
+  return turnstileSecretKey();
 }
 
 export function turnstileConfigured() {

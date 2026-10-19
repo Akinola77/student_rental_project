@@ -34,6 +34,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# Filled during Amplify builds with server-only contact secrets. Empty
+# placeholders must not be committed with real values either.
+src/lib/contact/runtime-env.generated.ts
+
 # vercel
 .vercel
 
