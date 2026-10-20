@@ -17,7 +17,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative h-screen overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -31,8 +31,8 @@ export default function HeroSlider() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/90 via-black/40 to-black/10" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full h-full flex items-start lg:items-center pt-32 pb-24 lg:py-0 overflow-x-hidden overflow-y-auto lg:overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.title}
