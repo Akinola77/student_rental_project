@@ -656,7 +656,7 @@ export default function AgenticAiConsultingPage() {
                 <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-200">
                   Validated AWS Expertise
                 </p>
-                <AwsAgenticBadge size="lg" priority />
+                <AwsAgenticBadge size="lg" priority wordmarkField={false} />
               </div>
               <p className="mb-4 text-lg leading-relaxed text-white/85">
                 Move beyond AI experiments.
@@ -806,7 +806,7 @@ export default function AgenticAiConsultingPage() {
               <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-200">
                 Official AWS credential
               </p>
-              <AwsAgenticBadge size="lg" />
+              <AwsAgenticBadge size="lg" wordmarkField={false} />
             </div>
           </div>
           <div>
