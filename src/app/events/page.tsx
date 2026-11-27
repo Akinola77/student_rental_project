@@ -82,6 +82,13 @@ export default function EventsPage() {
             </select>
           </div>
           <div className="space-y-6">
+            {list.length === 0 ? (
+              <p className="text-gray-600">
+                {filter === "upcoming"
+                  ? "No upcoming events at this time."
+                  : "No events to show."}
+              </p>
+            ) : null}
             {list.map((e) => (
               <article
                 key={e.slug}

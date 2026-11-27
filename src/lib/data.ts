@@ -501,7 +501,33 @@ export const caseStudies = [
   },
 ];
 
-export const events = [
+type SiteEvent = {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  month: string;
+  day: string;
+  date: string;
+  dateLabel?: string;
+  format?: string;
+  location?: string;
+  attendees?: string;
+  status: "upcoming" | "past";
+  summary: string;
+  body?: string;
+  about?: string[];
+  experienceTitle?: string;
+  experienceIntro?: string;
+  demoSteps?: { title: string; body: string }[];
+  experienceOutro?: string;
+  takeaways?: string[];
+  audience?: string[];
+  whyAttend?: string[];
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+export const events: SiteEvent[] = [
   {
     slug: "beyond-aiops-agentic-ai-aws",
     title:
@@ -513,7 +539,7 @@ export const events = [
     date: "2026-11-25",
     dateLabel: "Wednesday, 25 November 2026",
     format: "Live Technical Demonstration & Expert Insights",
-    status: "upcoming" as const,
+    status: "past" as const,
     summary:
       "An interactive session exploring Agentic AI-powered autonomous operations on AWS — from incident detection and investigation to human-in-the-loop approval and automated recovery.",
     about: [
@@ -574,10 +600,6 @@ export const events = [
       "Whether your organisation is exploring AIOps, investing in cloud automation or evaluating practical applications of Agentic AI, this session will provide insights and a live demonstration of what is possible with AWS.",
       "Join CloudHight Consulting on 25 November 2026 and discover how to take the next step towards intelligent, resilient and increasingly autonomous IT operations.",
     ],
-    ctaLabel: "Register Now — Reserve Your Place",
-    ctaHref:
-      "/contact?subject=" +
-      encodeURIComponent("Register: Beyond AIOps — 25 November 2026"),
   },
   {
     slug: "skills-challenge-hackathon-2025",
